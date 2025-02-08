@@ -56,6 +56,8 @@ import net.jcip.annotations.Immutable;
 public interface ImmutableMap<K, V>
         extends UnsortedMapIterable<K, V>, ImmutableMapIterable<K, V>
 {
+        Optional<V> retrieve(K key);
+        boolean hasKey(K key);
     ImmutableMap<K, V> newWithKeyValue(K key, V value);
 
     ImmutableMap<K, V> newWithAllKeyValues(Iterable<? extends Pair<? extends K, ? extends V>> keyValues);
@@ -147,4 +149,11 @@ public interface ImmutableMap<K, V>
             Function2<? super V2, ? super V, ? extends V2> nonMutatingAggregator);
 
     ImmutableMap<V, K> flipUniqueValues();
+
+    default Optional<V> retrieve(K key) {      // Ensures type safety while handling missing keys
+        return Optional.ofNullable(this.get(key));
+    }
+    default boolean hasKey(K key) {          // Provides a safe alternative to containsKey(object key)
+        return this.containsKey(key);
+    }
 }

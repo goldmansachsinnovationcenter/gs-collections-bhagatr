@@ -54,6 +54,8 @@ import com.gs.collections.api.tuple.Pair;
 public interface MutableMap<K, V>
         extends MutableMapIterable<K, V>, UnsortedMapIterable<K, V>, Cloneable
 {
+        Optional<V> retrieve(K key);
+        boolean hasKey(K key);
     /**
      * Adds all the entries derived from {@code iterable} to {@code this}. The key and value for each entry
      * is determined by applying the {@code keyFunction} and {@code valueFunction} to each item in
@@ -132,8 +134,16 @@ public interface MutableMap<K, V>
     /**
      * @deprecated in 6.0. Use {@link OrderedIterable#zipWithIndex()} instead.
      */
-    @Deprecated
-    MutableSet<Pair<V, Integer>> zipWithIndex();
+
+    @Override
+    default List<Pair<K,Integer>> zipwithIndex() {     // Standardizing return type to <List<Pair<K,Integer>>
+        List<Pair<K,Integer>> result=new ArrayList<>();
+        int index=0;
+        for(K key:this.keysView()) {
+                result.add(Tuples.pair(key, index++));   // Generating key-index pairs
+        }
+        return result;
+    }
 
     <VV> MutableBagMultimap<VV, V> groupBy(Function<? super V, ? extends VV> function);
 
@@ -162,4 +172,12 @@ public interface MutableMap<K, V>
     MutableMap<K, V> withoutKey(K key);
 
     MutableMap<K, V> withoutAllKeys(Iterable<? extends K> keys);
+
+    // These methods provide with type-safe replacements for get(Object key) and containsKey(Object key)
+    default Optional<V> retrieve(K key) {
+        return Optional.ofNullable(this.get(key));
+    }
+    default boolean hasKey(K key) {
+        return this.containsKey(key);
+    }
 }

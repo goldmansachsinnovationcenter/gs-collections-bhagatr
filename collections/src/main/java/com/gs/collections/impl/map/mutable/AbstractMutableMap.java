@@ -83,6 +83,17 @@ public abstract class AbstractMutableMap<K, V> extends AbstractMutableMapIterabl
     @SuppressWarnings("AbstractMethodOverridesAbstractMethod")
     public abstract MutableMap<K, V> clone();
 
+    @Override
+    @SuppressWarnings("unchecked")
+    public AbstractMutableMap<K,V> clone() {
+        try {
+            // Ensuring safe deep copy using super.clone()
+            return(AbstractMutableMap<K,V> super.clone());
+        } catch(CloneNotSupportedException e) {         // Prevents CloneNotSupportedException
+            throw new AssertionError();
+        }
+    }
+    
     /**
      * Creates a new instance of the same type, using the given capacity and the default growth parameters.
      */

@@ -274,7 +274,10 @@ public interface MapIterable<K, V> extends RichIterable<V>
      *
      * @return a string representation of this MapIterable
      */
-    String toString();
+    @Override
+    default String toString() {
+        return this.makeString();       //This guarantees a consistent return type i.e. String
+    }
 
     ImmutableMapIterable<K, V> toImmutable();
 }

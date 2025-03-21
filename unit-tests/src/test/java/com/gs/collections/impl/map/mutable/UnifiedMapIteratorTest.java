@@ -20,6 +20,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class UnifiedMapIteratorTest
@@ -67,11 +68,12 @@ public class UnifiedMapIteratorTest
         iterator.remove(); // Should throw IllegalStateException
     }
     
-    @Test(expected = UnsupportedOperationException.class)
+    @Test
     public void entrySetIterator_setValue_immutableEntry()
     {
         UnifiedMap<String, Integer> map = UnifiedMap.newWithKeysValues("1", 1);
         Map.Entry<String, Integer> entry = map.entrySet().iterator().next();
-        entry.setValue(100); // Should throw UnsupportedOperationException for immutable entries
+        entry.setValue(100); // This should update the value in the map
+        Assert.assertEquals(Integer.valueOf(100), map.get("1"));
     }
 }

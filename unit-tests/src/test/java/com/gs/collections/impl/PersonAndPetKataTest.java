@@ -494,7 +494,7 @@ public class PersonAndPetKataTest
                         .codePoints()
                         .filter(Character::isLetter)
                         .map(Character::toUpperCase)
-                        .collect(StringBuilder::new, StringBuilder::appendCodePoint, null).toString());
+                        .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString());
         Assert.assertEquals("HELLO",
                 StringIterate.asCharAdapter("h1e2l3l4o")
                         .select(Character::isLetter)

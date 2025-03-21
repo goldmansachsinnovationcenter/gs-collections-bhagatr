@@ -333,7 +333,7 @@ public class ComparatorsTest
     public static class OneOfEach
     {
         public static final Function<OneOfEach, Date> TO_DATE_VALUE = oneOfEach -> new Date(oneOfEach.dateValue.getTime());
-        private Date dateValue = Timestamp.valueOf("2004-12-12 22:20:30");
+        private Date dateValue;
 
         public OneOfEach(Date dateValue)
         {

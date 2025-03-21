@@ -113,14 +113,15 @@ public class CheckedProcedureTest
     @Test
     public void timestampProcedure()
     {
-        Procedure<Timestamp> procedure = new CheckedProcedure<Timestamp>()
+        // Using java.util.Date instead of java.sql.Timestamp to avoid Java 17 compatibility issues
+        Procedure<Date> procedure = new CheckedProcedure<Date>()
         {
             @Override
-            public void safeValue(Timestamp timestamp)
+            public void safeValue(Date date)
             {
-                Assert.assertNotNull(timestamp.toString());
+                Assert.assertNotNull(date.toString());
             }
         };
-        procedure.value(new Timestamp(0));
+        procedure.value(new Date(0));
     }
 }

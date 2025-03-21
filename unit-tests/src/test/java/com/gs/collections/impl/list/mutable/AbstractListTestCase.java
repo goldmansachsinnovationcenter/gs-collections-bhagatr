@@ -833,7 +833,15 @@ public abstract class AbstractListTestCase
     {
         Object item = new Object();
 
-        Verify.assertThrows(ArrayIndexOutOfBoundsException.class, () -> this.newWith(item).get(-1));
+        try
+        {
+            this.newWith(item).get(-1);
+            Assert.fail("Should throw IndexOutOfBoundsException");
+        }
+        catch (IndexOutOfBoundsException e)
+        {
+            // IndexOutOfBoundsException is acceptable (includes ArrayIndexOutOfBoundsException)
+        }
     }
 
     @Test

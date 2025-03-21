@@ -17,6 +17,7 @@
 package com.gs.collections.impl.bag.mutable;
 
 import java.util.Collections;
+import java.util.Iterator;
 
 import com.gs.collections.api.bag.MutableBag;
 import com.gs.collections.api.tuple.primitive.ObjectIntPair;
@@ -124,5 +125,34 @@ public class HashBagTest extends MutableBagTestCase
         Assert.assertEquals(
                 HashBag.newBagWith(1, 2, 2, 3, 3, 3, 4, 4, 4, 4),
                 HashBag.newBag(HashBag.newBagWith(1, 2, 2, 3, 3, 3, 4, 4, 4, 4)));
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void addOccurrences_negativeOccurrences()
+    {
+        HashBag<String> bag = HashBag.newBag();
+        bag.addOccurrences("test", -1);
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void removeOccurrences_negativeOccurrences()
+    {
+        HashBag<String> bag = HashBag.newBag();
+        bag.removeOccurrences("test", -1);
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void setOccurrences_negativeOccurrences()
+    {
+        HashBag<String> bag = HashBag.newBag();
+        bag.setOccurrences("test", -1);
+    }
+    
+    @Test(expected = IllegalStateException.class)
+    public void iterator_removeWithoutNext()
+    {
+        HashBag<String> bag = HashBag.newBagWith("one", "two");
+        Iterator<String> iterator = bag.iterator();
+        iterator.remove(); // Should throw IllegalStateException
     }
 }

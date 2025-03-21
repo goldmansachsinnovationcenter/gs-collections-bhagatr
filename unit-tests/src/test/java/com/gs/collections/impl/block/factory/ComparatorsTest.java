@@ -306,9 +306,22 @@ public class ComparatorsTest
     @Test
     public void specializedComparator()
     {
-        OneOfEach february = new OneOfEach(Timestamp.valueOf("2004-02-12 22:20:30"));
-        OneOfEach april = new OneOfEach(Timestamp.valueOf("2004-04-12 22:20:30"));
-        OneOfEach december = new OneOfEach(Timestamp.valueOf("2004-12-12 22:20:30"));
+        // Using SimpleDateFormat instead of Timestamp to avoid Java 17 compatibility issues
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date febDate = null;
+        Date aprDate = null;
+        Date decDate = null;
+        try {
+            febDate = sdf.parse("2004-02-12 22:20:30");
+            aprDate = sdf.parse("2004-04-12 22:20:30");
+            decDate = sdf.parse("2004-12-12 22:20:30");
+        } catch (Exception e) {
+            Assert.fail("Date parsing failed");
+        }
+        
+        OneOfEach february = new OneOfEach(febDate);
+        OneOfEach april = new OneOfEach(aprDate);
+        OneOfEach december = new OneOfEach(decDate);
 
         Comparator<OneOfEach> comparator = Comparators.byFunction(OneOfEach.TO_DATE_VALUE, new FancyDateComparator());
 
@@ -320,7 +333,7 @@ public class ComparatorsTest
     public static class OneOfEach
     {
         public static final Function<OneOfEach, Date> TO_DATE_VALUE = oneOfEach -> new Date(oneOfEach.dateValue.getTime());
-        private Date dateValue = Timestamp.valueOf("2004-12-12 22:20:30");
+        private Date dateValue;
 
         public OneOfEach(Date dateValue)
         {

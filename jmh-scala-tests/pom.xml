@@ -108,6 +108,19 @@
                 </executions>
                 <configuration>
                     <scalaVersion>${scala.version}</scalaVersion>
+                    <recompileMode>incremental</recompileMode>
+                    <useZincServer>true</useZincServer>
+                    <fork>true</fork>
+                    <jvmArgs>
+                        <jvmArg>-Xms64m</jvmArg>
+                        <jvmArg>-Xmx1024m</jvmArg>
+                    </jvmArgs>
+                    <args>
+                        <arg>-target:jvm-1.8</arg>
+                        <arg>-nobootcp</arg>
+                    </args>
+                    <source>7</source>
+                    <target>7</target>
                 </configuration>
             </plugin>
 

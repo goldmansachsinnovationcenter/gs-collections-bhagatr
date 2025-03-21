@@ -162,12 +162,11 @@
                         <jvmArg>-Xmx1024m</jvmArg>
                     </jvmArgs>
                     <args>
-                        <arg>-target:jvm-1.7</arg>
+                        <arg>-target:jvm-1.8</arg>
                         <arg>-nobootcp</arg>
                     </args>
                     <source>7</source>
                     <target>7</target>
-                    <javaHome>/usr/lib/jvm/java-11-openjdk-amd64</javaHome>
                 </configuration>
             </plugin>
 

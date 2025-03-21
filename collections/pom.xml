@@ -151,7 +151,7 @@
 
                 <plugin>
                     <artifactId>maven-release-plugin</artifactId>
-                    <version>3.0-r1585899</version>
+                    <version>2.5.3</version>
                 </plugin>
 
                 <plugin>
@@ -239,8 +239,8 @@
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
+                    <source>7</source>
+                    <target>7</target>
                     <fork>true</fork>
                     <maxmem>2048m</maxmem>
                     <verbose>true</verbose>
@@ -333,7 +333,7 @@
                     <windowtitle>Goldman Sachs Collections - ${project.version}</windowtitle>
                     <show>public</show>
                     <links>
-                        <link>http://java.sun.com/j2se/1.5.0/docs/api/</link>
+                        <link>https://docs.oracle.com/javase/7/docs/api/</link>
                     </links>
                     <destDir>${project.version}</destDir>
                     <additionalparam>-Xdoclint:none</additionalparam>

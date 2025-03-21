@@ -111,8 +111,16 @@ public final class ArrayListIterate
             size = ArrayList.class.getDeclaredField("size");
             try
             {
-                data.setAccessible(true);
-                size.setAccessible(true);
+                // In Java 17+, reflection access to JDK internals is restricted by default
+                // We'll try to set accessible, but if it fails, we'll fall back to non-optimized path
+                try {
+                    data.setAccessible(true);
+                    size.setAccessible(true);
+                } catch (Exception e) {
+                    // Java 17+ module restrictions - fall back to non-optimized path
+                    data = null;
+                    size = null;
+                }
             }
             catch (SecurityException ignored)
             {

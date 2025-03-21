@@ -883,6 +883,48 @@ public class FastListTest extends AbstractListTestCase
         MutableList<Integer> integers = this.newWith(1, 2, 3, 4);
         Verify.assertThrows(IndexOutOfBoundsException.class, () -> integers.get(4));
     }
+    
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void add_indexOutOfBounds_negative()
+    {
+        FastList<String> list = FastList.newList();
+        list.add(-1, "value");
+    }
+    
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void add_indexOutOfBounds_tooLarge()
+    {
+        FastList<String> list = FastList.newList();
+        list.add(1, "value");
+    }
+    
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void remove_indexOutOfBounds_negative()
+    {
+        FastList<String> list = FastList.newListWith("1", "2", "3");
+        list.remove(-1);
+    }
+    
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void remove_indexOutOfBounds_tooLarge()
+    {
+        FastList<String> list = FastList.newListWith("1", "2", "3");
+        list.remove(3);
+    }
+    
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void set_indexOutOfBounds_negative()
+    {
+        FastList<String> list = FastList.newListWith("1", "2", "3");
+        list.set(-1, "value");
+    }
+    
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void set_indexOutOfBounds_tooLarge()
+    {
+        FastList<String> list = FastList.newListWith("1", "2", "3");
+        list.set(3, "value");
+    }
 
     @Override
     @Test

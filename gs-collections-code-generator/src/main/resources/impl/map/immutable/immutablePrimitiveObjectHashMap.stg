@@ -139,7 +139,7 @@ final class Immutable<name>ObjectHashMap\<V> extends AbstractImmutable<name>Obje
         return this.delegate.containsValue(value);
     }
 
-    public Immutable<name>ObjectMap\<V> tap(Procedure\<? super V> procedure)
+    public Immutable<name>ObjectMap\<V> tapPrimitive(Procedure\<? super V> procedure)
     {
         this.forEach(procedure);
         return this;
@@ -160,14 +160,14 @@ final class Immutable<name>ObjectHashMap\<V> extends AbstractImmutable<name>Obje
         this.delegate.forEachKeyValue(procedure);
     }
 
-    public Immutable<name>ObjectMap\<V> select(<name>ObjectPredicate\<? super V> predicate)
+    public Immutable<name>ObjectMap\<V> selectPrimitive(<name>ObjectPredicate\<? super V> predicate)
     {
-        return this.delegate.select(predicate).toImmutable();
+        return this.delegate.selectPrimitive(predicate).toImmutable();
     }
 
-    public Immutable<name>ObjectMap\<V> reject(<name>ObjectPredicate\<? super V> predicate)
+    public Immutable<name>ObjectMap\<V> rejectPrimitive(<name>ObjectPredicate\<? super V> predicate)
     {
-        return this.delegate.reject(predicate).toImmutable();
+        return this.delegate.rejectPrimitive(predicate).toImmutable();
     }
 
     public Immutable<name>ObjectMap\<V> toImmutable()

@@ -33,7 +33,7 @@ public interface Mutable<name>ValuesMap extends <name>ValuesMap
 
     Mutable<name>Collection rejectPrimitive(<name>Predicate predicate);
 
-    \<V> MutableCollection\<V> collect(<name>ToObjectFunction\<? extends V> function);
+    \<V> MutableCollection\<V> collectObject(<name>ToObjectFunction\<? extends V> function);
 
     void clear();
 

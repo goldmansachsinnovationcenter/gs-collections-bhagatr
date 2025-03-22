@@ -35,9 +35,9 @@ public interface Immutable<name1><name2>Map extends <name1><name2>Map
 
     Immutable<name1><name2>Map rejectPrimitive(<name1><name2>Predicate predicate);
 
-    Immutable<name2>Collection selectObject(<name2>Predicate predicate);
+    Immutable<name2>Collection selectPrimitive(<name2>Predicate predicate);
 
-    Immutable<name2>Collection rejectObject(<name2>Predicate predicate);
+    Immutable<name2>Collection rejectPrimitive(<name2>Predicate predicate);
 
     \<V> ImmutableCollection\<V> collectObject(<name2>ToObjectFunction\<? extends V> function);
 

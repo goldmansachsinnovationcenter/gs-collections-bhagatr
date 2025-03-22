@@ -203,14 +203,14 @@ public final class Unmodifiable<name1><name2>Map
         return this.map.keyValuesView();
     }
 
-    public Mutable<name1><name2>Map select(<name1><name2>Predicate predicate)
+    public Mutable<name1><name2>Map selectPrimitive(<name1><name2>Predicate predicate)
     {
-        return this.map.select(predicate);
+        return this.map.selectPrimitive(predicate);
     }
 
-    public Mutable<name1><name2>Map reject(<name1><name2>Predicate predicate)
+    public Mutable<name1><name2>Map rejectPrimitive(<name1><name2>Predicate predicate)
     {
-        return this.map.reject(predicate);
+        return this.map.rejectPrimitive(predicate);
     }
 
     public Mutable<name2>Iterator <type2>Iterator()
@@ -251,14 +251,14 @@ public final class Unmodifiable<name1><name2>Map
         return this.map.noneSatisfy(predicate);
     }
 
-    public Mutable<name2>Collection select(<name2>Predicate predicate)
+    public Mutable<name2>Collection selectPrimitive(<name2>Predicate predicate)
     {
-        return this.map.select(predicate);
+        return this.map.selectPrimitive(predicate);
     }
 
-    public Mutable<name2>Collection reject(<name2>Predicate predicate)
+    public Mutable<name2>Collection rejectPrimitive(<name2>Predicate predicate)
     {
-        return this.map.reject(predicate);
+        return this.map.rejectPrimitive(predicate);
     }
 
     public <type2> detectIfNone(<name2>Predicate predicate, <type2> ifNone)

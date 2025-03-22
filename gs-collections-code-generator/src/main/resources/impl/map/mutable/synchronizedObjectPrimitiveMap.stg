@@ -234,19 +234,19 @@ public final class SynchronizedObject<name>Map\<K>
         }
     }
 
-    public MutableObject<name>Map\<K> select(Object<name>Predicate\<? super K> predicate)
+    public MutableObject<name>Map\<K> selectPrimitive(Object<name>Predicate\<? super K> predicate)
     {
         synchronized (this.lock)
         {
-            return this.map.select(predicate);
+            return this.map.selectPrimitive(predicate);
         }
     }
 
-    public MutableObject<name>Map\<K> reject(Object<name>Predicate\<? super K> predicate)
+    public MutableObject<name>Map\<K> rejectPrimitive(Object<name>Predicate\<? super K> predicate)
     {
         synchronized (this.lock)
         {
-            return this.map.reject(predicate);
+            return this.map.rejectPrimitive(predicate);
         }
     }
 
@@ -306,19 +306,19 @@ public final class SynchronizedObject<name>Map\<K>
         }
     }
 
-    public Mutable<name>Collection select(<name>Predicate predicate)
+    public Mutable<name>Collection selectPrimitive(<name>Predicate predicate)
     {
         synchronized (this.lock)
         {
-            return this.map.select(predicate);
+            return this.map.selectPrimitive(predicate);
         }
     }
 
-    public Mutable<name>Collection reject(<name>Predicate predicate)
+    public Mutable<name>Collection rejectPrimitive(<name>Predicate predicate)
     {
         synchronized (this.lock)
         {
-            return this.map.reject(predicate);
+            return this.map.rejectPrimitive(predicate);
         }
     }
 

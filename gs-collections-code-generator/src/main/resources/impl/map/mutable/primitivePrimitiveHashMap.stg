@@ -799,7 +799,7 @@ public class <name1><name2>HashMap extends AbstractMutable<name2>ValuesMap imple
         return new KeyValuesView();
     }
 
-    public <name1><name2>HashMap select(<name1><name2>Predicate predicate)
+    public <name1><name2>HashMap selectPrimitive(<name1><name2>Predicate predicate)
     {
         <name1><name2>HashMap result = new <name1><name2>HashMap();
 
@@ -808,7 +808,7 @@ public class <name1><name2>HashMap extends AbstractMutable<name2>ValuesMap imple
         return result;
     }
 
-    public <name1><name2>HashMap reject(<name1><name2>Predicate predicate)
+    public <name1><name2>HashMap rejectPrimitive(<name1><name2>Predicate predicate)
     {
         <name1><name2>HashMap result = new <name1><name2>HashMap();
 

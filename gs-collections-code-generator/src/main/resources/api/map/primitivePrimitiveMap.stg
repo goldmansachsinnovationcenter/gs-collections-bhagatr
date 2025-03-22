@@ -53,9 +53,9 @@ public interface <name1><name2>Map extends <name2>ValuesMap
      */
     RichIterable\<<name1><name2>Pair> keyValuesView();
 
-    <name1><name2>Map select(<name1><name2>Predicate predicate);
+    <name1><name2>Map selectPrimitive(<name1><name2>Predicate predicate);
 
-    <name1><name2>Map reject(<name1><name2>Predicate predicate);
+    <name1><name2>Map rejectPrimitive(<name1><name2>Predicate predicate);
 
     /**
      * Follows the same general contract as {@link Map#equals(Object)}.

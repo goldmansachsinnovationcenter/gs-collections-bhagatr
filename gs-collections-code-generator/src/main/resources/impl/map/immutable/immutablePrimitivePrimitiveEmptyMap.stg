@@ -125,12 +125,12 @@ final class Immutable<name1><name2>EmptyMap implements Immutable<name1><name2>Ma
         return LazyIterate.empty();
     }
 
-    public Immutable<name1><name2>Map select(<name1><name2>Predicate predicate)
+    public Immutable<name1><name2>Map selectPrimitive(<name1><name2>Predicate predicate)
     {
         return this;
     }
 
-    public Immutable<name1><name2>Map reject(<name1><name2>Predicate predicate)
+    public Immutable<name1><name2>Map rejectPrimitive(<name1><name2>Predicate predicate)
     {
         return this;
     }
@@ -177,12 +177,12 @@ final class Immutable<name1><name2>EmptyMap implements Immutable<name1><name2>Ma
         return true;
     }
 
-    public Immutable<name2>Collection select(<name2>Predicate predicate)
+    public Immutable<name2>Collection selectPrimitive(<name2>Predicate predicate)
     {
         return <name2>Lists.immutable.with();
     }
 
-    public Immutable<name2>Collection reject(<name2>Predicate predicate)
+    public Immutable<name2>Collection rejectPrimitive(<name2>Predicate predicate)
     {
         return <name2>Lists.immutable.with();
     }

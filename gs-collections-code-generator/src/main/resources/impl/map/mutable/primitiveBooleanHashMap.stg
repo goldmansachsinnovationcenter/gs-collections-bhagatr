@@ -979,7 +979,7 @@ public class <name>BooleanHashMap extends AbstractMutableBooleanValuesMap implem
         }
     }
 
-    public <name>BooleanHashMap select(<name>BooleanPredicate predicate)
+    public <name>BooleanHashMap selectPrimitive(<name>BooleanPredicate predicate)
     {
         <name>BooleanHashMap result = new <name>BooleanHashMap();
 
@@ -1005,7 +1005,7 @@ public class <name>BooleanHashMap extends AbstractMutableBooleanValuesMap implem
         return result;
     }
 
-    public <name>BooleanHashMap reject(<name>BooleanPredicate predicate)
+    public <name>BooleanHashMap rejectPrimitive(<name>BooleanPredicate predicate)
     {
         <name>BooleanHashMap result = new <name>BooleanHashMap();
 

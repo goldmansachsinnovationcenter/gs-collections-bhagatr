@@ -17,7 +17,10 @@ body(type, name) ::= <<
 package com.gs.collections.api.map.primitive;
 
 import com.gs.collections.api.<name>Iterable;
+import com.gs.collections.api.block.function.primitive.<name>ToObjectFunction;
+import com.gs.collections.api.block.predicate.primitive.<name>Predicate;
 import com.gs.collections.api.block.procedure.primitive.<name>Procedure;
+import com.gs.collections.api.collection.MutableCollection;
 import com.gs.collections.api.collection.primitive.Mutable<name>Collection;
 
 /**
@@ -30,6 +33,12 @@ public interface <name>ValuesMap extends <name>Iterable
     boolean containsValue(<type> value);
 
     void forEachValue(<name>Procedure procedure);
+    
+    Mutable<name>Collection selectPrimitive(<name>Predicate predicate);
+    
+    Mutable<name>Collection rejectPrimitive(<name>Predicate predicate);
+    
+    \<V> MutableCollection\<V> collectObject(<name>ToObjectFunction\<? extends V> function);
 
     Mutable<name>Collection values();
 }

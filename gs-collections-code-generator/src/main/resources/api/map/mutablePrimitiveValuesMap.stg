@@ -29,11 +29,11 @@ import com.gs.collections.api.iterator.Mutable<name>Iterator;
  */
 public interface Mutable<name>ValuesMap extends <name>ValuesMap
 {
-    Mutable<name>Collection selectPrimitive(<name>Predicate predicate);
+    Mutable<name>Collection selectMutable(<name>Predicate predicate);
 
-    Mutable<name>Collection rejectPrimitive(<name>Predicate predicate);
+    Mutable<name>Collection rejectMutable(<name>Predicate predicate);
 
-    \<V> MutableCollection\<V> collectObject(<name>ToObjectFunction\<? extends V> function);
+    \<V> MutableCollection\<V> collectMutable(<name>ToObjectFunction\<? extends V> function);
 
     void clear();
 

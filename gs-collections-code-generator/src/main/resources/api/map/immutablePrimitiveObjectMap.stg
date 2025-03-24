@@ -47,19 +47,19 @@ import com.gs.collections.api.collection.primitive.ImmutableShortCollection;
  */
 public interface Immutable<name>ObjectMap\<V> extends <name>ObjectMap\<V>
 {
-    Immutable<name>ObjectMap\<V> tapPrimitive(Procedure\<? super V> procedure);
+    Immutable<name>ObjectMap\<V> tapImmutable(Procedure\<? super V> procedure);
 
-    Immutable<name>ObjectMap\<V> selectPrimitive(<name>ObjectPredicate\<? super V> predicate);
+    Immutable<name>ObjectMap\<V> selectImmutable(<name>ObjectPredicate\<? super V> predicate);
 
-    Immutable<name>ObjectMap\<V> rejectPrimitive(<name>ObjectPredicate\<? super V> predicate);
+    Immutable<name>ObjectMap\<V> rejectImmutable(<name>ObjectPredicate\<? super V> predicate);
 
-    ImmutableCollection\<V> selectObject(Predicate\<? super V> predicate);
+    ImmutableCollection\<V> selectImmutable(Predicate\<? super V> predicate);
 
-    \<P> ImmutableCollection\<V> selectWithObject(Predicate2\<? super V, ? super P> predicate, P parameter);
+    \<P> ImmutableCollection\<V> selectWithImmutable(Predicate2\<? super V, ? super P> predicate, P parameter);
 
-    ImmutableCollection\<V> rejectObject(Predicate\<? super V> predicate);
+    ImmutableCollection\<V> rejectImmutable(Predicate\<? super V> predicate);
 
-    \<VV> ImmutableCollection\<VV> collectObject(Function\<? super V, ? extends VV> function);
+    \<VV> ImmutableCollection\<VV> collectImmutable(Function\<? super V, ? extends VV> function);
 
     ImmutableBooleanCollection collectBoolean(BooleanFunction\<? super V> booleanFunction);
 
@@ -77,7 +77,7 @@ public interface Immutable<name>ObjectMap\<V> extends <name>ObjectMap\<V>
 
     ImmutableShortCollection collectShort(ShortFunction\<? super V> shortFunction);
 
-    \<P, VV> ImmutableCollection\<VV> collectWithObject(Function2\<? super V, ? super P, ? extends VV> function, P parameter);
+    \<P, VV> ImmutableCollection\<VV> collectWithImmutable(Function2\<? super V, ? super P, ? extends VV> function, P parameter);
 
     Immutable<name>ObjectMap\<V> newWithKeyValue(<type> key, V value);
 

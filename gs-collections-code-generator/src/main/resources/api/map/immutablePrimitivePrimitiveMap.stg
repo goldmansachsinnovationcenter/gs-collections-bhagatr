@@ -31,15 +31,15 @@ import com.gs.collections.api.collection.primitive.Immutable<name2>Collection;
  */
 public interface Immutable<name1><name2>Map extends <name1><name2>Map
 {
-    Immutable<name1><name2>Map select(<name1><name2>Predicate predicate);
+    Immutable<name1><name2>Map selectPrimitive(<name1><name2>Predicate predicate);
 
-    Immutable<name1><name2>Map reject(<name1><name2>Predicate predicate);
+    Immutable<name1><name2>Map rejectPrimitive(<name1><name2>Predicate predicate);
 
-    Immutable<name2>Collection select(<name2>Predicate predicate);
+    Immutable<name2>Collection selectPrimitive(<name2>Predicate predicate);
 
-    Immutable<name2>Collection reject(<name2>Predicate predicate);
+    Immutable<name2>Collection rejectPrimitive(<name2>Predicate predicate);
 
-    \<V> ImmutableCollection\<V> collect(<name2>ToObjectFunction\<? extends V> function);
+    \<V> ImmutableCollection\<V> collectObject(<name2>ToObjectFunction\<? extends V> function);
 
     Immutable<name1><name2>Map newWithKeyValue(<type1> key, <type2> value);
 

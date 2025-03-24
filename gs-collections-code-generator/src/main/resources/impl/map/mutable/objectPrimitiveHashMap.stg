@@ -686,7 +686,7 @@ public class Object<name>HashMap\<K> implements MutableObject<name>Map\<K>, Exte
         }
     }
 
-    public Object<name>HashMap\<K> select(Object<name>Predicate\<? super K> predicate)
+    public Object<name>HashMap\<K> selectPrimitive(Object<name>Predicate\<? super K> predicate)
     {
         Object<name>HashMap\<K> result = Object<name>HashMap.newMap();
 
@@ -700,7 +700,7 @@ public class Object<name>HashMap\<K> implements MutableObject<name>Map\<K>, Exte
         return result;
     }
 
-    public Object<name>HashMap\<K> reject(Object<name>Predicate\<? super K> predicate)
+    public Object<name>HashMap\<K> rejectPrimitive(Object<name>Predicate\<? super K> predicate)
     {
         Object<name>HashMap\<K> result = Object<name>HashMap.newMap();
 
@@ -714,7 +714,7 @@ public class Object<name>HashMap\<K> implements MutableObject<name>Map\<K>, Exte
         return result;
     }
 
-    public Mutable<name>Collection select(<name>Predicate predicate)
+    public Mutable<name>Collection selectPrimitive(<name>Predicate predicate)
     {
         <name>ArrayList result = new <name>ArrayList();
 
@@ -728,7 +728,7 @@ public class Object<name>HashMap\<K> implements MutableObject<name>Map\<K>, Exte
         return result;
     }
 
-    public Mutable<name>Collection reject(<name>Predicate predicate)
+    public Mutable<name>Collection rejectPrimitive(<name>Predicate predicate)
     {
         <name>ArrayList result = new <name>ArrayList();
 
@@ -1684,14 +1684,14 @@ public class Object<name>HashMap\<K> implements MutableObject<name>Map\<K>, Exte
             Object<name>HashMap.this.forEach(procedure);
         }
 
-        public Mutable<name>Collection select(<name>Predicate predicate)
+        public Mutable<name>Collection selectPrimitive(<name>Predicate predicate)
         {
-            return Object<name>HashMap.this.select(predicate);
+            return Object<name>HashMap.this.selectPrimitive(predicate);
         }
 
-        public Mutable<name>Collection reject(<name>Predicate predicate)
+        public Mutable<name>Collection rejectPrimitive(<name>Predicate predicate)
         {
-            return Object<name>HashMap.this.reject(predicate);
+            return Object<name>HashMap.this.rejectPrimitive(predicate);
         }
 
         public \<V> MutableCollection\<V> collect(<name>ToObjectFunction\<? extends V> function)

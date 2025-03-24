@@ -187,7 +187,7 @@ final class Immutable<name>ObjectSingletonMap\<V> extends AbstractImmutable<name
         return false;
     }
 
-    public Immutable<name>ObjectMap\<V> tap(Procedure\<? super V> procedure)
+    public Immutable<name>ObjectMap\<V> tapPrimitive(Procedure\<? super V> procedure)
     {
         procedure.value(this.value1);
         return this;
@@ -208,13 +208,13 @@ final class Immutable<name>ObjectSingletonMap\<V> extends AbstractImmutable<name
         procedure.value(this.key1, this.value1);
     }
 
-    public Immutable<name>ObjectMap\<V> select(<name>ObjectPredicate\<? super V> predicate)
+    public Immutable<name>ObjectMap\<V> selectPrimitive(<name>ObjectPredicate\<? super V> predicate)
     {
         return predicate.accept(this.key1, this.value1) ? <name>ObjectHashMap.newWithKeysValues(this.key1, this.value1).toImmutable()
                 : (Immutable<name>ObjectMap\<V>) Immutable<name>ObjectEmptyMap.INSTANCE;
     }
 
-    public Immutable<name>ObjectMap\<V> reject(<name>ObjectPredicate\<? super V> predicate)
+    public Immutable<name>ObjectMap\<V> rejectPrimitive(<name>ObjectPredicate\<? super V> predicate)
     {
         return predicate.accept(this.key1, this.value1) ? (Immutable<name>ObjectMap\<V>) Immutable<name>ObjectEmptyMap.INSTANCE
                 : <name>ObjectHashMap.newWithKeysValues(this.key1, this.value1).toImmutable();

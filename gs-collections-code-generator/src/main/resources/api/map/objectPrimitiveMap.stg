@@ -48,9 +48,9 @@ public interface Object<name>Map\<K> extends <name>Iterable
 
     void forEachKeyValue(Object<name>Procedure\<? super K> procedure);
 
-    Object<name>Map\<K> select(Object<name>Predicate\<? super K> predicate);
+    Object<name>Map\<K> selectPrimitive(Object<name>Predicate\<? super K> predicate);
 
-    Object<name>Map\<K> reject(Object<name>Predicate\<? super K> predicate);
+    Object<name>Map\<K> rejectPrimitive(Object<name>Predicate\<? super K> predicate);
 
     /**
      * Returns a string representation of this Object<name>Map. The string representation consists of a list of the

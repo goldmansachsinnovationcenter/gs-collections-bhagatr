@@ -201,7 +201,7 @@ public final class Unmodifiable<name>ObjectMap\<V>
         return this.map.containsValue(value);
     }
 
-    public Mutable<name>ObjectMap\<V> tap(Procedure\<? super V> procedure)
+    public Mutable<name>ObjectMap\<V> tapPrimitive(Procedure\<? super V> procedure)
     {
         this.map.forEach(procedure);
         return this;
@@ -222,14 +222,14 @@ public final class Unmodifiable<name>ObjectMap\<V>
         this.map.forEachKeyValue(procedure);
     }
 
-    public Mutable<name>ObjectMap\<V> select(<name>ObjectPredicate\<? super V> predicate)
+    public Mutable<name>ObjectMap\<V> selectPrimitive(<name>ObjectPredicate\<? super V> predicate)
     {
-        return this.map.select(predicate);
+        return this.map.selectPrimitive(predicate);
     }
 
-    public Mutable<name>ObjectMap\<V> reject(<name>ObjectPredicate\<? super V> predicate)
+    public Mutable<name>ObjectMap\<V> rejectPrimitive(<name>ObjectPredicate\<? super V> predicate)
     {
-        return this.map.reject(predicate);
+        return this.map.rejectPrimitive(predicate);
     }
 
     public int size()

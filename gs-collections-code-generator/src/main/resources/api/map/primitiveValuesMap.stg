@@ -34,11 +34,11 @@ public interface <name>ValuesMap extends <name>Iterable
 
     void forEachValue(<name>Procedure procedure);
     
-    Mutable<name>Collection selectPrimitive(<name>Predicate predicate);
+    Mutable<name>Collection selectMutable(<name>Predicate predicate);
     
-    Mutable<name>Collection rejectPrimitive(<name>Predicate predicate);
+    Mutable<name>Collection rejectMutable(<name>Predicate predicate);
     
-    \<V> MutableCollection\<V> collectObject(<name>ToObjectFunction\<? extends V> function);
+    \<V> MutableCollection\<V> collectMutable(<name>ToObjectFunction\<? extends V> function);
 
     Mutable<name>Collection values();
 }

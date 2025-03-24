@@ -54,15 +54,15 @@ public interface MutableObject<name>Map\<K> extends Object<name>Map\<K>
 
     <type> updateValue(K key, <type> initialValueIfAbsent, <name>To<name>Function function);
 
-    MutableObject<name>Map\<K> selectPrimitive(Object<name>Predicate\<? super K> predicate);
+    MutableObject<name>Map\<K> selectMutable(Object<name>Predicate\<? super K> predicate);
 
-    MutableObject<name>Map\<K> rejectPrimitive(Object<name>Predicate\<? super K> predicate);
+    MutableObject<name>Map\<K> rejectMutable(Object<name>Predicate\<? super K> predicate);
 
-    Mutable<name>Collection select(<name>Predicate predicate);
+    Mutable<name>Collection selectMutable(<name>Predicate predicate);
 
-    Mutable<name>Collection reject(<name>Predicate predicate);
+    Mutable<name>Collection rejectMutable(<name>Predicate predicate);
 
-    \<V> MutableCollection\<V> collect(<name>ToObjectFunction\<? extends V> function);
+    \<V> MutableCollection\<V> collectMutable(<name>ToObjectFunction\<? extends V> function);
 
     MutableObject<name>Map\<K> withKeyValue(K key, <type> value);
 

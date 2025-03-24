@@ -51,9 +51,9 @@ public interface Mutable<name1><name2>Map extends <name1><name2>Map, Mutable<nam
 
     <type2> updateValue(<type1> key, <type2> initialValueIfAbsent, <name2>To<name2>Function function);
 
-    Mutable<name1><name2>Map selectPrimitive(<name1><name2>Predicate predicate);
+    Mutable<name1><name2>Map selectMutable(<name1><name2>Predicate predicate);
 
-    Mutable<name1><name2>Map rejectPrimitive(<name1><name2>Predicate predicate);
+    Mutable<name1><name2>Map rejectMutable(<name1><name2>Predicate predicate);
 
     Mutable<name1><name2>Map withKeyValue(<type1> key, <type2> value);
 

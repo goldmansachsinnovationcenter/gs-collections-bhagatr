@@ -60,9 +60,9 @@ public interface Mutable<name>ObjectMap\<V> extends <name>ObjectMap\<V>, Mutable
      */
     \<P> V updateValueWith(<type> key, Function0\<? extends V> factory, Function2\<? super V, ? super P, ? extends V> function, P parameter);
 
-    Mutable<name>ObjectMap\<V> selectPrimitive(<name>ObjectPredicate\<? super V> predicate);
+    Mutable<name>ObjectMap\<V> selectMutable(<name>ObjectPredicate\<? super V> predicate);
 
-    Mutable<name>ObjectMap\<V> rejectPrimitive(<name>ObjectPredicate\<? super V> predicate);
+    Mutable<name>ObjectMap\<V> rejectMutable(<name>ObjectPredicate\<? super V> predicate);
 
     Mutable<name>ObjectMap\<V> withKeyValue(<type> key, V value);
 

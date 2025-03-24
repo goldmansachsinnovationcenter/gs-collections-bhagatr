@@ -799,7 +799,7 @@ public class <name1><name2>HashMap extends AbstractMutable<name2>ValuesMap imple
         return new KeyValuesView();
     }
 
-    public <name1><name2>HashMap selectPrimitive(<name1><name2>Predicate predicate)
+    public <name1><name2>HashMap selectMutable(<name1><name2>Predicate predicate)
     {
         <name1><name2>HashMap result = new <name1><name2>HashMap();
 
@@ -808,7 +808,7 @@ public class <name1><name2>HashMap extends AbstractMutable<name2>ValuesMap imple
         return result;
     }
 
-    public <name1><name2>HashMap rejectPrimitive(<name1><name2>Predicate predicate)
+    public <name1><name2>HashMap rejectMutable(<name1><name2>Predicate predicate)
     {
         <name1><name2>HashMap result = new <name1><name2>HashMap();
 
@@ -1138,7 +1138,7 @@ public class <name1><name2>HashMap extends AbstractMutable<name2>ValuesMap imple
         {
             int oldSize = <name1><name2>HashMap.this.size();
             final <name1>Set sourceSet = source instanceof <name1>Set ? (<name1>Set) source : source.toSet();
-            <name1><name2>HashMap retained = <name1><name2>HashMap.this.select(new <name1><name2>Predicate()
+            <name1><name2>HashMap retained = <name1><name2>HashMap.this.selectMutable(new <name1><name2>Predicate()
             {
                 public boolean accept(<type1> key, <type2> value)
                 {
@@ -1223,7 +1223,7 @@ public class <name1><name2>HashMap extends AbstractMutable<name2>ValuesMap imple
         {
             int oldSize = <name1><name2>HashMap.this.size();
             final <name2>Set sourceSet = source instanceof <name2>Set ? (<name2>Set) source : source.toSet();
-            <name1><name2>HashMap retained = <name1><name2>HashMap.this.select(new <name1><name2>Predicate()
+            <name1><name2>HashMap retained = <name1><name2>HashMap.this.selectMutable(new <name1><name2>Predicate()
             {
                 public boolean accept(<type1> key, <type2> value)
                 {

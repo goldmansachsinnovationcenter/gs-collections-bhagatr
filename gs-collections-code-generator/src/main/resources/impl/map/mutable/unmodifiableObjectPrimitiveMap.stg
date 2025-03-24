@@ -179,14 +179,14 @@ public final class UnmodifiableObject<name>Map\<K>
         this.map.forEachKeyValue(procedure);
     }
 
-    public MutableObject<name>Map\<K> selectPrimitive(Object<name>Predicate\<? super K> predicate)
+    public MutableObject<name>Map\<K> selectMutable(Object<name>Predicate\<? super K> predicate)
     {
-        return this.map.selectPrimitive(predicate);
+        return this.map.selectMutable(predicate);
     }
 
-    public MutableObject<name>Map\<K> rejectPrimitive(Object<name>Predicate\<? super K> predicate)
+    public MutableObject<name>Map\<K> rejectMutable(Object<name>Predicate\<? super K> predicate)
     {
-        return this.map.rejectPrimitive(predicate);
+        return this.map.rejectMutable(predicate);
     }
 
     public Mutable<name>Iterator <type>Iterator()
@@ -227,14 +227,14 @@ public final class UnmodifiableObject<name>Map\<K>
         return this.map.noneSatisfy(predicate);
     }
 
-    public Mutable<name>Collection selectPrimitive(<name>Predicate predicate)
+    public Mutable<name>Collection selectMutable(<name>Predicate predicate)
     {
-        return this.map.selectPrimitive(predicate);
+        return this.map.selectMutable(predicate);
     }
 
-    public Mutable<name>Collection rejectPrimitive(<name>Predicate predicate)
+    public Mutable<name>Collection rejectMutable(<name>Predicate predicate)
     {
-        return this.map.rejectPrimitive(predicate);
+        return this.map.rejectMutable(predicate);
     }
 
     public <type> detectIfNone(<name>Predicate predicate, <type> ifNone)
@@ -242,9 +242,9 @@ public final class UnmodifiableObject<name>Map\<K>
         return this.map.detectIfNone(predicate, ifNone);
     }
 
-    public \<V1> MutableCollection\<V1> collect(<name>ToObjectFunction\<? extends V1> function)
+    public \<V1> MutableCollection\<V1> collectMutable(<name>ToObjectFunction\<? extends V1> function)
     {
-        return this.map.collect(function);
+        return this.map.collectMutable(function);
     }
 
     <(arithmeticMethods.(type))(name, type)>

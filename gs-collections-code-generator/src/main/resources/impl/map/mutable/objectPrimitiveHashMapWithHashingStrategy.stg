@@ -704,7 +704,7 @@ public class Object<name>HashMapWithHashingStrategy\<K> implements MutableObject
         }
     }
 
-    public Object<name>HashMapWithHashingStrategy\<K> select(Object<name>Predicate\<? super K> predicate)
+    public Object<name>HashMapWithHashingStrategy\<K> selectMutable(Object<name>Predicate\<? super K> predicate)
     {
         Object<name>HashMapWithHashingStrategy\<K> result = Object<name>HashMapWithHashingStrategy.newMap(this.hashingStrategy);
 
@@ -718,7 +718,7 @@ public class Object<name>HashMapWithHashingStrategy\<K> implements MutableObject
         return result;
     }
 
-    public Object<name>HashMapWithHashingStrategy\<K> reject(Object<name>Predicate\<? super K> predicate)
+    public Object<name>HashMapWithHashingStrategy\<K> rejectMutable(Object<name>Predicate\<? super K> predicate)
     {
         Object<name>HashMapWithHashingStrategy\<K> result = Object<name>HashMapWithHashingStrategy.newMap(this.hashingStrategy);
 
@@ -732,7 +732,7 @@ public class Object<name>HashMapWithHashingStrategy\<K> implements MutableObject
         return result;
     }
 
-    public Mutable<name>Collection select(<name>Predicate predicate)
+    public Mutable<name>Collection selectMutable(<name>Predicate predicate)
     {
         <name>ArrayList result = new <name>ArrayList();
 
@@ -746,7 +746,7 @@ public class Object<name>HashMapWithHashingStrategy\<K> implements MutableObject
         return result;
     }
 
-    public Mutable<name>Collection reject(<name>Predicate predicate)
+    public Mutable<name>Collection rejectMutable(<name>Predicate predicate)
     {
         <name>ArrayList result = new <name>ArrayList();
 
@@ -772,7 +772,7 @@ public class Object<name>HashMapWithHashingStrategy\<K> implements MutableObject
         return ifNone;
     }
 
-    public \<V> MutableCollection\<V> collect(<name>ToObjectFunction\<? extends V> function)
+    public \<V> MutableCollection\<V> collectMutable(<name>ToObjectFunction\<? extends V> function)
     {
         MutableList\<V> result = FastList.newList(this.size());
         for (int i = 0; i \< this.keys.length; i++)
@@ -1610,7 +1610,7 @@ public class Object<name>HashMapWithHashingStrategy\<K> implements MutableObject
         {
             int oldSize = Object<name>HashMapWithHashingStrategy.this.size();
             final <name>Set sourceSet = source instanceof <name>Set ? (<name>Set) source : source.toSet();
-            Object<name>HashMapWithHashingStrategy\<K> retained = Object<name>HashMapWithHashingStrategy.this.select(new Object<name>Predicate\<K>()
+            Object<name>HashMapWithHashingStrategy\<K> retained = Object<name>HashMapWithHashingStrategy.this.selectMutable(new Object<name>Predicate\<K>()
             {
                 public boolean accept(K object, <type> value)
                 {
@@ -1708,19 +1708,19 @@ public class Object<name>HashMapWithHashingStrategy\<K> implements MutableObject
             this.forEach(procedure);
         }
 
-        public Mutable<name>Collection select(<name>Predicate predicate)
+        public Mutable<name>Collection selectMutable(<name>Predicate predicate)
         {
-            return Object<name>HashMapWithHashingStrategy.this.select(predicate);
+            return Object<name>HashMapWithHashingStrategy.this.selectMutable(predicate);
         }
 
-        public Mutable<name>Collection reject(<name>Predicate predicate)
+        public Mutable<name>Collection rejectMutable(<name>Predicate predicate)
         {
-            return Object<name>HashMapWithHashingStrategy.this.reject(predicate);
+            return Object<name>HashMapWithHashingStrategy.this.rejectMutable(predicate);
         }
 
-        public \<V> MutableCollection\<V> collect(<name>ToObjectFunction\<? extends V> function)
+        public \<V> MutableCollection\<V> collectMutable(<name>ToObjectFunction\<? extends V> function)
         {
-            return Object<name>HashMapWithHashingStrategy.this.collect(function);
+            return Object<name>HashMapWithHashingStrategy.this.collectMutable(function);
         }
 
         public \<T> T injectInto(T injectedValue, Object<name>ToObjectFunction\<? super T, ? extends T> function)

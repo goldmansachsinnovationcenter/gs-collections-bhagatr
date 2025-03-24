@@ -288,19 +288,19 @@ public final class Synchronized<name>ObjectMap\<V>
         }
     }
 
-    public Mutable<name>ObjectMap\<V> selectPrimitive(<name>ObjectPredicate\<? super V> predicate)
+    public Mutable<name>ObjectMap\<V> selectMutable(<name>ObjectPredicate\<? super V> predicate)
     {
         synchronized (this.lock)
         {
-            return this.map.select(predicate);
+            return this.map.selectMutable(predicate);
         }
     }
 
-    public Mutable<name>ObjectMap\<V> rejectPrimitive(<name>ObjectPredicate\<? super V> predicate)
+    public Mutable<name>ObjectMap\<V> rejectMutable(<name>ObjectPredicate\<? super V> predicate)
     {
         synchronized (this.lock)
         {
-            return this.map.reject(predicate);
+            return this.map.rejectMutable(predicate);
         }
     }
 
@@ -376,35 +376,35 @@ public final class Synchronized<name>ObjectMap\<V>
         }
     }
 
-    public MutableCollection\<V> select(Predicate\<? super V> predicate)
+    public MutableCollection\<V> selectMutable(Predicate\<? super V> predicate)
     {
         synchronized (this.lock)
         {
-            return this.map.select(predicate);
+            return this.map.selectMutable(predicate);
         }
     }
 
-    public \<R extends Collection\<V>\> R select(Predicate\<? super V> predicate, R target)
+    public \<R extends Collection\<V>\> R selectMutable(Predicate\<? super V> predicate, R target)
     {
         synchronized (this.lock)
         {
-            return this.map.select(predicate, target);
+            return this.map.selectMutable(predicate, target);
         }
     }
 
-    public \<P> MutableCollection\<V> selectWith(Predicate2\<? super V, ? super P> predicate, P parameter)
+    public \<P> MutableCollection\<V> selectWithMutable(Predicate2\<? super V, ? super P> predicate, P parameter)
     {
         synchronized (this.lock)
         {
-            return this.map.selectWith(predicate, parameter);
+            return this.map.selectWithMutable(predicate, parameter);
         }
     }
 
-    public \<P, R extends Collection\<V>\> R selectWith(Predicate2\<? super V, ? super P> predicate, P parameter, R targetCollection)
+    public \<P, R extends Collection\<V>\> R selectWithMutable(Predicate2\<? super V, ? super P> predicate, P parameter, R targetCollection)
     {
         synchronized (this.lock)
         {
-            return this.map.selectWith(predicate, parameter, targetCollection);
+            return this.map.selectWithMutable(predicate, parameter, targetCollection);
         }
     }
 
@@ -476,19 +476,19 @@ public final class Synchronized<name>ObjectMap\<V>
         }
     }
 
-    public MutableCollection\<V> reject(Predicate\<? super V> predicate)
+    public MutableCollection\<V> rejectMutable(Predicate\<? super V> predicate)
     {
         synchronized (this.lock)
         {
-            return this.map.reject(predicate);
+            return this.map.rejectMutable(predicate);
         }
     }
 
-    public \<R extends Collection\<V>\> R reject(Predicate\<? super V> predicate, R target)
+    public \<R extends Collection\<V>\> R rejectMutable(Predicate\<? super V> predicate, R target)
     {
         synchronized (this.lock)
         {
-            return this.map.reject(predicate, target);
+            return this.map.rejectMutable(predicate, target);
         }
     }
 
@@ -516,11 +516,11 @@ public final class Synchronized<name>ObjectMap\<V>
         }
     }
 
-    public \<VV> MutableCollection\<VV> collect(Function\<? super V, ? extends VV> function)
+    public \<VV> MutableCollection\<VV> collectMutable(Function\<? super V, ? extends VV> function)
     {
         synchronized (this.lock)
         {
-            return this.map.collect(function);
+            return this.map.collectMutable(function);
         }
     }
 
@@ -540,27 +540,27 @@ public final class Synchronized<name>ObjectMap\<V>
 
     <collectPrimitive("Short", "short")>
 
-    public \<P, VV> MutableCollection\<VV> collectWith(Function2\<? super V, ? super P, ? extends VV> function, P parameter)
+    public \<P, VV> MutableCollection\<VV> collectWithMutable(Function2\<? super V, ? super P, ? extends VV> function, P parameter)
     {
         synchronized (this.lock)
         {
-            return this.map.collectWith(function, parameter);
+            return this.map.collectWithMutable(function, parameter);
         }
     }
 
-    public \<P, VV, R extends Collection\<VV>\> R collectWith(Function2\<? super V, ? super P, ? extends VV> function, P parameter, R targetCollection)
+    public \<P, VV, R extends Collection\<VV>\> R collectWithMutable(Function2\<? super V, ? super P, ? extends VV> function, P parameter, R targetCollection)
     {
         synchronized (this.lock)
         {
-            return this.map.collectWith(function, parameter, targetCollection);
+            return this.map.collectWithMutable(function, parameter, targetCollection);
         }
     }
 
-    public \<VV, R extends Collection\<VV>\> R collect(Function\<? super V, ? extends VV> function, R target)
+    public \<VV, R extends Collection\<VV>\> R collectMutable(Function\<? super V, ? extends VV> function, R target)
     {
         synchronized (this.lock)
         {
-            return this.map.collect(function, target);
+            return this.map.collectMutable(function, target);
         }
     }
 

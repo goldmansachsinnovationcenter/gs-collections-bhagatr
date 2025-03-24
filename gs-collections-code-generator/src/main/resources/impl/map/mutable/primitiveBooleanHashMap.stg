@@ -979,7 +979,7 @@ public class <name>BooleanHashMap extends AbstractMutableBooleanValuesMap implem
         }
     }
 
-    public <name>BooleanHashMap selectPrimitive(<name>BooleanPredicate predicate)
+    public <name>BooleanHashMap selectMutable(<name>BooleanPredicate predicate)
     {
         <name>BooleanHashMap result = new <name>BooleanHashMap();
 
@@ -1005,7 +1005,7 @@ public class <name>BooleanHashMap extends AbstractMutableBooleanValuesMap implem
         return result;
     }
 
-    public <name>BooleanHashMap rejectPrimitive(<name>BooleanPredicate predicate)
+    public <name>BooleanHashMap rejectMutable(<name>BooleanPredicate predicate)
     {
         <name>BooleanHashMap result = new <name>BooleanHashMap();
 
@@ -1527,7 +1527,7 @@ public class <name>BooleanHashMap extends AbstractMutableBooleanValuesMap implem
         {
             int oldSize = <name>BooleanHashMap.this.size();
             final <name>Set sourceSet = source instanceof <name>Set ? (<name>Set) source : source.toSet();
-            <name>BooleanHashMap retained = <name>BooleanHashMap.this.select(new <name>BooleanPredicate()
+            <name>BooleanHashMap retained = <name>BooleanHashMap.this.selectMutable(new <name>BooleanPredicate()
             {
                 public boolean accept(<type> key, boolean value)
                 {
@@ -1643,7 +1643,7 @@ public class <name>BooleanHashMap extends AbstractMutableBooleanValuesMap implem
         {
             int oldSize = <name>BooleanHashMap.this.size();
             final BooleanSet sourceSet = source instanceof BooleanSet ? (BooleanSet) source : source.toSet();
-            <name>BooleanHashMap retained = <name>BooleanHashMap.this.select(new <name>BooleanPredicate()
+            <name>BooleanHashMap retained = <name>BooleanHashMap.this.selectMutable(new <name>BooleanPredicate()
             {
                 public boolean accept(<type> key, boolean value)
                 {

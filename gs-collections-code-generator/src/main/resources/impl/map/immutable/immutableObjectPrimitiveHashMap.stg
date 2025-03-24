@@ -101,14 +101,14 @@ final class ImmutableObject<name>HashMap\<K> extends AbstractImmutableObject<nam
         return this.delegate.noneSatisfy(predicate);
     }
 
-    public Immutable<name>Collection selectPrimitive(<name>Predicate predicate)
+    public Immutable<name>Collection selectImmutable(<name>Predicate predicate)
     {
-        return this.delegate.selectPrimitive(predicate).toImmutable();
+        return this.delegate.selectImmutable(predicate).toImmutable();
     }
 
-    public Immutable<name>Collection rejectPrimitive(<name>Predicate predicate)
+    public Immutable<name>Collection rejectImmutable(<name>Predicate predicate)
     {
-        return this.delegate.rejectPrimitive(predicate).toImmutable();
+        return this.delegate.rejectImmutable(predicate).toImmutable();
     }
 
     public <type> detectIfNone(<name>Predicate predicate, <type> ifNone)
@@ -121,9 +121,9 @@ final class ImmutableObject<name>HashMap\<K> extends AbstractImmutableObject<nam
         return this.delegate.injectInto(injectedValue, function);
     }
 
-    public \<V> ImmutableCollection\<V> collect(<name>ToObjectFunction\<? extends V> function)
+    public \<V> ImmutableCollection\<V> collectImmutable(<name>ToObjectFunction\<? extends V> function)
     {
-        return this.delegate.collect(function).toImmutable();
+        return this.delegate.collectImmutable(function).toImmutable();
     }
 
     <(arithmeticMethods.(type))()>
@@ -235,14 +235,14 @@ final class ImmutableObject<name>HashMap\<K> extends AbstractImmutableObject<nam
         this.delegate.forEachKeyValue(object<name>Procedure);
     }
 
-    public ImmutableObject<name>Map\<K> selectPrimitive(Object<name>Predicate\<? super K> object<name>Predicate)
+    public ImmutableObject<name>Map\<K> selectImmutable(Object<name>Predicate\<? super K> object<name>Predicate)
     {
-        return this.delegate.selectPrimitive(object<name>Predicate).toImmutable();
+        return this.delegate.selectImmutable(object<name>Predicate).toImmutable();
     }
 
-    public ImmutableObject<name>Map\<K> rejectPrimitive(Object<name>Predicate\<? super K> object<name>Predicate)
+    public ImmutableObject<name>Map\<K> rejectImmutable(Object<name>Predicate\<? super K> object<name>Predicate)
     {
-        return this.delegate.rejectPrimitive(object<name>Predicate).toImmutable();
+        return this.delegate.rejectImmutable(object<name>Predicate).toImmutable();
     }
 
     public ImmutableObject<name>Map\<K> toImmutable()

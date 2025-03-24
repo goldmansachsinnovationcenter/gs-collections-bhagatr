@@ -107,7 +107,7 @@ final class ImmutableObject<name>EmptyMap\<K> implements ImmutableObject<name>Ma
         return true;
     }
 
-    public Immutable<name>Collection select(<name>Predicate predicate)
+    public Immutable<name>Collection selectImmutable(<name>Predicate predicate)
     {
         return <name>Lists.immutable.with();
     }
@@ -122,7 +122,7 @@ final class ImmutableObject<name>EmptyMap\<K> implements ImmutableObject<name>Ma
         return ifNone;
     }
 
-    public \<V> ImmutableCollection\<V> collect(<name>ToObjectFunction\<? extends V> function)
+    public \<V> ImmutableCollection\<V> collectImmutable(<name>ToObjectFunction\<? extends V> function)
     {
         return Lists.immutable.of();
     }

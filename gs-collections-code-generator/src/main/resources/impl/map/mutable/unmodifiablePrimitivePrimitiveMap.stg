@@ -266,9 +266,9 @@ public final class Unmodifiable<name1><name2>Map
         return this.map.detectIfNone(predicate, ifNone);
     }
 
-    public \<V> MutableCollection\<V> collect(<name2>ToObjectFunction\<? extends V> function)
+    public \<V> MutableCollection\<V> collectMutable(<name2>ToObjectFunction\<? extends V> function)
     {
-        return this.map.collect(function);
+        return this.map.collectMutable(function);
     }
 
     <(arithmeticMethods.(type2))(name2, type2)>

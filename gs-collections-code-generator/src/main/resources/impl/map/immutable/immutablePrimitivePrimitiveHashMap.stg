@@ -196,9 +196,9 @@ final class Immutable<name1><name2>HashMap implements Immutable<name1><name2>Map
         return this.delegate.detectIfNone(predicate, ifNone);
     }
 
-    public \<V> ImmutableCollection\<V> collect(<name2>ToObjectFunction\<? extends V> function)
+    public \<V> ImmutableCollection\<V> collectImmutable(<name2>ToObjectFunction\<? extends V> function)
     {
-        return this.delegate.collect(function).toImmutable();
+        return this.delegate.collectImmutable(function).toImmutable();
     }
 
     <(arithmeticMethods.(type2))()>

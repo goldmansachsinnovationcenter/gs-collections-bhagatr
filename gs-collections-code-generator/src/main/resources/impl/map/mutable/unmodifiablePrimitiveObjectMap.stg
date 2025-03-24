@@ -277,14 +277,14 @@ public final class Unmodifiable<name>ObjectMap\<V>
         return this.map.containsAllArguments(elements);
     }
 
-    public MutableCollection\<V> select(Predicate\<? super V> predicate)
+    public MutableCollection\<V> selectMutable(Predicate\<? super V> predicate)
     {
-        return this.map.select(predicate);
+        return this.map.selectMutable(predicate);
     }
 
-    public \<R extends Collection\<V>\> R select(Predicate\<? super V> predicate, R target)
+    public \<R extends Collection\<V>\> R selectMutable(Predicate\<? super V> predicate, R target)
     {
-        return this.map.select(predicate, target);
+        return this.map.selectMutable(predicate, target);
     }
 
     public \<P> MutableCollection\<V> selectWith(Predicate2\<? super V, ? super P> predicate, P parameter)
@@ -341,14 +341,14 @@ public final class Unmodifiable<name>ObjectMap\<V>
         return this.map.aggregateBy(groupBy, zeroValueFactory, nonMutatingAggregator);
     }
 
-    public MutableCollection\<V> reject(Predicate\<? super V> predicate)
+    public MutableCollection\<V> rejectMutable(Predicate\<? super V> predicate)
     {
-        return this.map.reject(predicate);
+        return this.map.rejectMutable(predicate);
     }
 
-    public \<R extends Collection\<V>\> R reject(Predicate\<? super V> predicate, R target)
+    public \<R extends Collection\<V>\> R rejectMutable(Predicate\<? super V> predicate, R target)
     {
-        return this.map.reject(predicate, target);
+        return this.map.rejectMutable(predicate, target);
     }
 
     public \<P> MutableCollection\<V> rejectWith(Predicate2\<? super V, ? super P> predicate, P parameter)
@@ -366,9 +366,9 @@ public final class Unmodifiable<name>ObjectMap\<V>
         throw new UnsupportedOperationException("Cannot call clear() on " + this.getClass().getSimpleName());
     }
 
-    public \<VV> MutableCollection\<VV> collect(Function\<? super V, ? extends VV> function)
+    public \<VV> MutableCollection\<VV> collectMutable(Function\<? super V, ? extends VV> function)
     {
-        return this.map.collect(function);
+        return this.map.collectMutable(function);
     }
 
     <collectPrimitive("Boolean", "boolean")>
@@ -397,9 +397,9 @@ public final class Unmodifiable<name>ObjectMap\<V>
         return this.map.collectWith(function, parameter, targetCollection);
     }
 
-    public \<VV, R extends Collection\<VV>\> R collect(Function\<? super V, ? extends VV> function, R target)
+    public \<VV, R extends Collection\<VV>\> R collectMutable(Function\<? super V, ? extends VV> function, R target)
     {
-        return this.map.collect(function, target);
+        return this.map.collectMutable(function, target);
     }
 
     public \<VV> MutableBag\<VV> collectIf(Predicate\<? super V> predicate, Function\<? super V, ? extends VV> function)

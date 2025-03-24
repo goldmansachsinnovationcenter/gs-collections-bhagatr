@@ -208,7 +208,7 @@ final class Immutable<name1><name2>SingletonMap implements Immutable<name1><name
         return predicate.accept(this.value1) ? this.value1 : ifNone;
     }
 
-    public \<V> ImmutableCollection\<V> collect(<name2>ToObjectFunction\<? extends V> function)
+    public \<V> ImmutableCollection\<V> collectImmutable(<name2>ToObjectFunction\<? extends V> function)
     {
         return Lists.immutable.of(function.valueOf(this.value1));
     }

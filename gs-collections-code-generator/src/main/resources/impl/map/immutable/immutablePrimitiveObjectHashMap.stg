@@ -220,14 +220,14 @@ final class Immutable<name>ObjectHashMap\<V> extends AbstractImmutable<name>Obje
         return this.delegate.containsAllArguments(elements);
     }
 
-    public ImmutableCollection\<V> select(Predicate\<? super V> predicate)
+    public ImmutableCollection\<V> selectImmutable(Predicate\<? super V> predicate)
     {
-        return this.delegate.select(predicate).toImmutable();
+        return this.delegate.selectImmutable(predicate).toImmutable();
     }
 
-    public \<R extends Collection\<V>\> R select(Predicate\<? super V> predicate, R target)
+    public \<R extends Collection\<V>\> R selectImmutable(Predicate\<? super V> predicate, R target)
     {
-        return this.delegate.select(predicate, target);
+        return this.delegate.selectImmutable(predicate, target);
     }
 
     public \<P> ImmutableCollection\<V> selectWithImmutable(Predicate2\<? super V, ? super P> predicate, P parameter)
@@ -240,14 +240,14 @@ final class Immutable<name>ObjectHashMap\<V> extends AbstractImmutable<name>Obje
         return this.delegate.selectWithImmutable(predicate, parameter, targetCollection);
     }
 
-    public ImmutableCollection\<V> reject(Predicate\<? super V> predicate)
+    public ImmutableCollection\<V> rejectImmutable(Predicate\<? super V> predicate)
     {
-        return this.delegate.reject(predicate).toImmutable();
+        return this.delegate.rejectImmutable(predicate).toImmutable();
     }
 
-    public \<R extends Collection\<V>\> R reject(Predicate\<? super V> predicate, R target)
+    public \<R extends Collection\<V>\> R rejectImmutable(Predicate\<? super V> predicate, R target)
     {
-        return this.delegate.reject(predicate, target);
+        return this.delegate.rejectImmutable(predicate, target);
     }
 
     public \<P> ImmutableCollection\<V> rejectWith(Predicate2\<? super V, ? super P> predicate, P parameter)
@@ -275,9 +275,9 @@ final class Immutable<name>ObjectHashMap\<V> extends AbstractImmutable<name>Obje
         return this.delegate.selectInstancesOf(clazz);
     }
 
-    public \<VV> ImmutableCollection\<VV> collect(Function\<? super V, ? extends VV> function)
+    public \<VV> ImmutableCollection\<VV> collectImmutable(Function\<? super V, ? extends VV> function)
     {
-        return this.delegate.collect(function).toImmutable();
+        return this.delegate.collectImmutable(function).toImmutable();
     }
 
     <collectPrimitive("Boolean", "boolean")>
@@ -638,9 +638,9 @@ final class Immutable<name>ObjectHashMap\<V> extends AbstractImmutable<name>Obje
         return this.delegate.collectWithImmutable(function, parameter, targetCollection);
     }
 
-    public \<VV, R extends Collection\<VV>\> R collect(Function\<? super V, ? extends VV> function, R target)
+    public \<VV, R extends Collection\<VV>\> R collectImmutable(Function\<? super V, ? extends VV> function, R target)
     {
-        return this.delegate.collect(function, target);
+        return this.delegate.collectImmutable(function, target);
     }
 
     public Immutable<name>ObjectMap\<V> newWithKeyValue(<type> key, V value)

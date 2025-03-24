@@ -160,21 +160,21 @@ class <className> extends AbstractImmutable<name>Set implements Serializable
         <forEachKey("executeProcedure")>
     }
 
-    public Immutable<name>Set select(<name>Predicate predicate)
+    public Immutable<name>Set selectMutable(<name>Predicate predicate)
     {
         <name>HashSet result = new <name>HashSet();
         <forEachKeySatisfying("predicate", "select")>
         return result.toImmutable();
     }
 
-    public Immutable<name>Set reject(<name>Predicate predicate)
+    public Immutable<name>Set rejectMutable(<name>Predicate predicate)
     {
         <name>HashSet result = new <name>HashSet();
         <forEachKeySatisfying("!predicate", "select")>
         return result.toImmutable();
     }
 
-    public \<V> ImmutableSet\<V> collect(<name>ToObjectFunction\<? extends V> function)
+    public \<V> ImmutableSet\<V> collectMutable(<name>ToObjectFunction\<? extends V> function)
     {
         MutableSet\<V> target = UnifiedSet.newSet(this.size());
         <forEachKey("collect")>
@@ -424,7 +424,7 @@ compensation = nextSum - result - adjustedValue;
 result = nextSum;
 >>
 
-collect(key) ::= <<
+collectMutable(key) ::= <<
 target.add(function.valueOf(<key>));
 >>
 
@@ -432,7 +432,7 @@ executeProcedure(key) ::= <<
 procedure.value(<key>);
 >>
 
-select(key) ::= <<
+selectMutable(key) ::= <<
 result.add(<key>);
 >>
 

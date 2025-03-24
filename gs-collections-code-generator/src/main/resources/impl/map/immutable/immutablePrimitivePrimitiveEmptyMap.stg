@@ -192,7 +192,7 @@ final class Immutable<name1><name2>EmptyMap implements Immutable<name1><name2>Ma
         return ifNone;
     }
 
-    public \<V> ImmutableCollection\<V> collect(<name2>ToObjectFunction\<? extends V> function)
+    public \<V> ImmutableCollection\<V> collectImmutable(<name2>ToObjectFunction\<? extends V> function)
     {
         return Lists.immutable.of();
     }

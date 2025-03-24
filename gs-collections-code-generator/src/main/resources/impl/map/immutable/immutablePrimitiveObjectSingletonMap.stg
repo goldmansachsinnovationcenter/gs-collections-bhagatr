@@ -335,12 +335,12 @@ final class Immutable<name>ObjectSingletonMap\<V> extends AbstractImmutable<name
         return true;
     }
 
-    public ImmutableCollection\<V> select(Predicate\<? super V> predicate)
+    public ImmutableCollection\<V> selectImmutable(Predicate\<? super V> predicate)
     {
         return predicate.accept(this.value1) ? Lists.immutable.with(this.value1) : Lists.immutable.\<V>with();
     }
 
-    public \<R extends Collection\<V>\> R select(Predicate\<? super V> predicate, R target)
+    public \<R extends Collection\<V>\> R selectImmutable(Predicate\<? super V> predicate, R target)
     {
         if (predicate.accept(this.value1))
         {
@@ -363,12 +363,12 @@ final class Immutable<name>ObjectSingletonMap\<V> extends AbstractImmutable<name
         return targetCollection;
     }
 
-    public ImmutableCollection\<V> reject(Predicate\<? super V> predicate)
+    public ImmutableCollection\<V> rejectImmutable(Predicate\<? super V> predicate)
     {
         return predicate.accept(this.value1) ? Lists.immutable.\<V>with() : Lists.immutable.with(this.value1);
     }
 
-    public \<R extends Collection\<V>\> R reject(Predicate\<? super V> predicate, R target)
+    public \<R extends Collection\<V>\> R rejectImmutable(Predicate\<? super V> predicate, R target)
     {
         if (!predicate.accept(this.value1))
         {
@@ -410,7 +410,7 @@ final class Immutable<name>ObjectSingletonMap\<V> extends AbstractImmutable<name
         return clazz.isInstance(this.value1) ? Lists.immutable.with(clazz.cast(this.value1)) : Lists.immutable.\<S>with();
     }
 
-    public \<VV> ImmutableCollection\<VV> collect(Function\<? super V, ? extends VV> function)
+    public \<VV> ImmutableCollection\<VV> collectImmutable(Function\<? super V, ? extends VV> function)
     {
         return Lists.immutable.with(function.valueOf(this.value1));
     }
@@ -810,7 +810,7 @@ final class Immutable<name>ObjectSingletonMap\<V> extends AbstractImmutable<name
         return targetCollection;
     }
 
-    public \<VV, R extends Collection\<VV>\> R collect(Function\<? super V, ? extends VV> function, R target)
+    public \<VV, R extends Collection\<VV>\> R collectImmutable(Function\<? super V, ? extends VV> function, R target)
     {
         target.add(function.valueOf(this.value1));
         return target;

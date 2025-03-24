@@ -351,11 +351,11 @@ public final class Synchronized<name1><name2>Map
         }
     }
 
-    public \<V> MutableCollection\<V> collect(<name2>ToObjectFunction\<? extends V> function)
+    public \<V> MutableCollection\<V> collectMutable(<name2>ToObjectFunction\<? extends V> function)
     {
         synchronized (this.lock)
         {
-            return this.map.collect(function);
+            return this.map.collectMutable(function);
         }
     }
 

@@ -132,13 +132,13 @@ final class Immutable<name1><name2>SingletonMap implements Immutable<name1><name
         return Lists.immutable.of(PrimitiveTuples.pair(this.key1, this.value1)).asLazy();
     }
 
-    public Immutable<name1><name2>Map selectPrimitive(<name1><name2>Predicate predicate)
+    public Immutable<name1><name2>Map selectImmutable(<name1><name2>Predicate predicate)
     {
         return predicate.accept(this.key1, this.value1) ? <name1><name2>HashMap.newWithKeysValues(this.key1, this.value1).toImmutable()
                 : new <name1><name2>HashMap().toImmutable();
     }
 
-    public Immutable<name1><name2>Map rejectPrimitive(<name1><name2>Predicate predicate)
+    public Immutable<name1><name2>Map rejectImmutable(<name1><name2>Predicate predicate)
     {
         return predicate.accept(this.key1, this.value1) ? new <name1><name2>HashMap().toImmutable()
                 : <name1><name2>HashMap.newWithKeysValues(this.key1, this.value1).toImmutable();
@@ -193,12 +193,12 @@ final class Immutable<name1><name2>SingletonMap implements Immutable<name1><name
         return !predicate.accept(this.value1);
     }
 
-    public Immutable<name2>Collection selectPrimitive(<name2>Predicate predicate)
+    public Immutable<name2>Collection selectImmutable(<name2>Predicate predicate)
     {
         return predicate.accept(this.value1) ? <name2>ArrayList.newListWith(this.value1).toImmutable() : new <name2>ArrayList().toImmutable();
     }
 
-    public Immutable<name2>Collection rejectPrimitive(<name2>Predicate predicate)
+    public Immutable<name2>Collection rejectImmutable(<name2>Predicate predicate)
     {
         return predicate.accept(this.value1) ? new <name2>ArrayList().toImmutable() : <name2>ArrayList.newListWith(this.value1).toImmutable();
     }

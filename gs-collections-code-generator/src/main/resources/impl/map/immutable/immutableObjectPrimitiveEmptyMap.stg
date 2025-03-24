@@ -112,7 +112,7 @@ final class ImmutableObject<name>EmptyMap\<K> implements ImmutableObject<name>Ma
         return <name>Lists.immutable.with();
     }
 
-    public Immutable<name>Collection rejectPrimitive(<name>Predicate predicate)
+    public Immutable<name>Collection rejectImmutable(<name>Predicate predicate)
     {
         return <name>Lists.immutable.with();
     }
@@ -220,12 +220,12 @@ final class ImmutableObject<name>EmptyMap\<K> implements ImmutableObject<name>Ma
     {
     }
 
-    public ImmutableObject<name>Map\<K> selectPrimitive(Object<name>Predicate\<? super K> object<name>Predicate)
+    public ImmutableObject<name>Map\<K> selectImmutable(Object<name>Predicate\<? super K> object<name>Predicate)
     {
         return this;
     }
 
-    public ImmutableObject<name>Map\<K> rejectPrimitive(Object<name>Predicate\<? super K> object<name>Predicate)
+    public ImmutableObject<name>Map\<K> rejectImmutable(Object<name>Predicate\<? super K> object<name>Predicate)
     {
         return this;
     }

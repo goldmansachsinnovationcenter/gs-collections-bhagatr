@@ -675,7 +675,7 @@ public class <name>ObjectHashMap\<V> implements Mutable<name>ObjectMap\<V>, Exte
         }
     }
 
-    public <name>ObjectHashMap\<V> selectPrimitive(<name>ObjectPredicate\<? super V> predicate)
+    public <name>ObjectHashMap\<V> selectMutable(<name>ObjectPredicate\<? super V> predicate)
     {
         <name>ObjectHashMap\<V> result = <name>ObjectHashMap.newMap();
 
@@ -700,7 +700,7 @@ public class <name>ObjectHashMap\<V> implements Mutable<name>ObjectMap\<V>, Exte
         return result;
     }
 
-    public <name>ObjectHashMap\<V> rejectPrimitive(<name>ObjectPredicate\<? super V> predicate)
+    public <name>ObjectHashMap\<V> rejectMutable(<name>ObjectPredicate\<? super V> predicate)
     {
         <name>ObjectHashMap\<V> result = <name>ObjectHashMap.newMap();
 
@@ -800,7 +800,7 @@ public class <name>ObjectHashMap\<V> implements Mutable<name>ObjectMap\<V>, Exte
         return targetCollection;
     }
 
-    public MutableCollection\<V> rejectObject(Predicate\<? super V> predicate)
+    public MutableCollection\<V> rejectMutable(Predicate\<? super V> predicate)
     {
         MutableList\<V> result = FastList.newList();
         if (this.sentinelValues != null)
@@ -824,7 +824,7 @@ public class <name>ObjectHashMap\<V> implements Mutable<name>ObjectMap\<V>, Exte
         return result;
     }
 
-    public \<R extends Collection\<V>\> R rejectObject(Predicate\<? super V> predicate, R target)
+    public \<R extends Collection\<V>\> R rejectMutable(Predicate\<? super V> predicate, R target)
     {
         if (this.sentinelValues != null)
         {
@@ -3082,7 +3082,7 @@ public class <name>ObjectHashMap\<V> implements Mutable<name>ObjectMap\<V>, Exte
             <name>ObjectHashMap.this.clear();
         }
 
-        public Mutable<name>Set selectPrimitive(<name>Predicate predicate)
+        public Mutable<name>Set selectMutable(<name>Predicate predicate)
         {
             Mutable<name>Set result = new <name>HashSet();
             if (<name>ObjectHashMap.this.sentinelValues != null)
@@ -3106,7 +3106,7 @@ public class <name>ObjectHashMap\<V> implements Mutable<name>ObjectMap\<V>, Exte
             return result;
         }
 
-        public Mutable<name>Set rejectPrimitive(<name>Predicate predicate)
+        public Mutable<name>Set rejectMutable(<name>Predicate predicate)
         {
             Mutable<name>Set result = new <name>HashSet();
             if (<name>ObjectHashMap.this.sentinelValues != null)

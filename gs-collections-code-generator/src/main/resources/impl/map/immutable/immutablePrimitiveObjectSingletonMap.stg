@@ -208,13 +208,13 @@ final class Immutable<name>ObjectSingletonMap\<V> extends AbstractImmutable<name
         procedure.value(this.key1, this.value1);
     }
 
-    public Immutable<name>ObjectMap\<V> selectPrimitive(<name>ObjectPredicate\<? super V> predicate)
+    public Immutable<name>ObjectMap\<V> selectImmutable(<name>ObjectPredicate\<? super V> predicate)
     {
         return predicate.accept(this.key1, this.value1) ? <name>ObjectHashMap.newWithKeysValues(this.key1, this.value1).toImmutable()
                 : (Immutable<name>ObjectMap\<V>) Immutable<name>ObjectEmptyMap.INSTANCE;
     }
 
-    public Immutable<name>ObjectMap\<V> rejectPrimitive(<name>ObjectPredicate\<? super V> predicate)
+    public Immutable<name>ObjectMap\<V> rejectImmutable(<name>ObjectPredicate\<? super V> predicate)
     {
         return predicate.accept(this.key1, this.value1) ? (Immutable<name>ObjectMap\<V>) Immutable<name>ObjectEmptyMap.INSTANCE
                 : <name>ObjectHashMap.newWithKeysValues(this.key1, this.value1).toImmutable();
@@ -349,12 +349,12 @@ final class Immutable<name>ObjectSingletonMap\<V> extends AbstractImmutable<name
         return target;
     }
 
-    public \<P> ImmutableCollection\<V> selectWith(Predicate2\<? super V, ? super P> predicate, P parameter)
+    public \<P> ImmutableCollection\<V> selectWithImmutable(Predicate2\<? super V, ? super P> predicate, P parameter)
     {
         return predicate.accept(this.value1, parameter) ? Lists.immutable.with(this.value1) : Lists.immutable.\<V>with();
     }
 
-    public \<P, R extends Collection\<V>\> R selectWith(Predicate2\<? super V, ? super P> predicate, P parameter, R targetCollection)
+    public \<P, R extends Collection\<V>\> R selectWithImmutable(Predicate2\<? super V, ? super P> predicate, P parameter, R targetCollection)
     {
         if (predicate.accept(this.value1, parameter))
         {
@@ -799,12 +799,12 @@ final class Immutable<name>ObjectSingletonMap\<V> extends AbstractImmutable<name
         return target;
     }
 
-    public \<P, VV> ImmutableCollection\<VV> collectWith(Function2\<? super V, ? super P, ? extends VV> function, P parameter)
+    public \<P, VV> ImmutableCollection\<VV> collectWithImmutable(Function2\<? super V, ? super P, ? extends VV> function, P parameter)
     {
         return Lists.immutable.with(function.value(this.value1, parameter));
     }
 
-    public \<P, VV, R extends Collection\<VV>\> R collectWith(Function2\<? super V, ? super P, ? extends VV> function, P parameter, R targetCollection)
+    public \<P, VV, R extends Collection\<VV>\> R collectWithImmutable(Function2\<? super V, ? super P, ? extends VV> function, P parameter, R targetCollection)
     {
         targetCollection.add(function.value(this.value1, parameter));
         return targetCollection;

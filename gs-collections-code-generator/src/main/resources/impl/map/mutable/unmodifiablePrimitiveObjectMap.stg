@@ -222,14 +222,14 @@ public final class Unmodifiable<name>ObjectMap\<V>
         this.map.forEachKeyValue(procedure);
     }
 
-    public Mutable<name>ObjectMap\<V> selectPrimitive(<name>ObjectPredicate\<? super V> predicate)
+    public Mutable<name>ObjectMap\<V> selectMutable(<name>ObjectPredicate\<? super V> predicate)
     {
-        return this.map.selectPrimitive(predicate);
+        return this.map.selectMutable(predicate);
     }
 
-    public Mutable<name>ObjectMap\<V> rejectPrimitive(<name>ObjectPredicate\<? super V> predicate)
+    public Mutable<name>ObjectMap\<V> rejectMutable(<name>ObjectPredicate\<? super V> predicate)
     {
-        return this.map.rejectPrimitive(predicate);
+        return this.map.rejectMutable(predicate);
     }
 
     public int size()

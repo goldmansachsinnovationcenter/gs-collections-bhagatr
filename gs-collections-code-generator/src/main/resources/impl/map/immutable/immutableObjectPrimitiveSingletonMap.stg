@@ -111,12 +111,12 @@ final class ImmutableObject<name>SingletonMap\<K> extends AbstractImmutableObjec
         return !predicate.accept(this.value1);
     }
 
-    public Immutable<name>Collection selectPrimitive(<name>Predicate predicate)
+    public Immutable<name>Collection selectImmutable(<name>Predicate predicate)
     {
         return predicate.accept(this.value1) ? <name>Lists.immutable.with(this.value1) : <name>Lists.immutable.with();
     }
 
-    public Immutable<name>Collection rejectPrimitive(<name>Predicate predicate)
+    public Immutable<name>Collection rejectImmutable(<name>Predicate predicate)
     {
         return predicate.accept(this.value1) ? <name>Lists.immutable.with() : <name>Lists.immutable.with(this.value1);
     }
@@ -271,13 +271,13 @@ final class ImmutableObject<name>SingletonMap\<K> extends AbstractImmutableObjec
         object<name>Procedure.value(this.key1, this.value1);
     }
 
-    public ImmutableObject<name>Map\<K> selectPrimitive(Object<name>Predicate\<? super K> object<name>Predicate)
+    public ImmutableObject<name>Map\<K> selectImmutable(Object<name>Predicate\<? super K> object<name>Predicate)
     {
         return object<name>Predicate.accept(this.key1, this.value1) ? Object<name>HashMap.newWithKeysValues(this.key1, this.value1).toImmutable()
                 : (ImmutableObject<name>Map\<K>) ImmutableObject<name>EmptyMap.INSTANCE;
     }
 
-    public ImmutableObject<name>Map\<K> rejectPrimitive(Object<name>Predicate\<? super K> object<name>Predicate)
+    public ImmutableObject<name>Map\<K> rejectImmutable(Object<name>Predicate\<? super K> object<name>Predicate)
     {
         return object<name>Predicate.accept(this.key1, this.value1) ? (ImmutableObject<name>Map\<K>) ImmutableObject<name>EmptyMap.INSTANCE
                 : Object<name>HashMap.newWithKeysValues(this.key1, this.value1).toImmutable();

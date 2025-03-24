@@ -255,19 +255,19 @@ public final class Synchronized<name1><name2>Map
         }
     }
 
-    public Mutable<name1><name2>Map selectPrimitive(<name1><name2>Predicate predicate)
+    public Mutable<name1><name2>Map selectMutable(<name1><name2>Predicate predicate)
     {
         synchronized (this.lock)
         {
-            return this.map.selectPrimitive(predicate);
+            return this.map.selectMutable(predicate);
         }
     }
 
-    public Mutable<name1><name2>Map rejectPrimitive(<name1><name2>Predicate predicate)
+    public Mutable<name1><name2>Map rejectMutable(<name1><name2>Predicate predicate)
     {
         synchronized (this.lock)
         {
-            return this.map.rejectPrimitive(predicate);
+            return this.map.rejectMutable(predicate);
         }
     }
 
@@ -327,19 +327,19 @@ public final class Synchronized<name1><name2>Map
         }
     }
 
-    public Mutable<name2>Collection selectPrimitive(<name2>Predicate predicate)
+    public Mutable<name2>Collection selectMutable(<name2>Predicate predicate)
     {
         synchronized (this.lock)
         {
-            return this.map.selectPrimitive(predicate);
+            return this.map.selectMutable(predicate);
         }
     }
 
-    public Mutable<name2>Collection rejectPrimitive(<name2>Predicate predicate)
+    public Mutable<name2>Collection rejectMutable(<name2>Predicate predicate)
     {
         synchronized (this.lock)
         {
-            return this.map.rejectPrimitive(predicate);
+            return this.map.rejectMutable(predicate);
         }
     }
 

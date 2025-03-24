@@ -123,14 +123,14 @@ final class Immutable<name1><name2>HashMap implements Immutable<name1><name2>Map
         return this.delegate.keyValuesView();
     }
 
-    public Immutable<name1><name2>Map selectPrimitive(<name1><name2>Predicate predicate)
+    public Immutable<name1><name2>Map selectImmutable(<name1><name2>Predicate predicate)
     {
-        return this.delegate.selectPrimitive(predicate).toImmutable();
+        return this.delegate.selectImmutable(predicate).toImmutable();
     }
 
-    public Immutable<name1><name2>Map rejectPrimitive(<name1><name2>Predicate predicate)
+    public Immutable<name1><name2>Map rejectImmutable(<name1><name2>Predicate predicate)
     {
-        return this.delegate.rejectPrimitive(predicate).toImmutable();
+        return this.delegate.rejectImmutable(predicate).toImmutable();
     }
 
     public \<T> T injectInto(T injectedValue, Object<name2>ToObjectFunction\<? super T, ? extends T> function)
@@ -181,14 +181,14 @@ final class Immutable<name1><name2>HashMap implements Immutable<name1><name2>Map
         return this.delegate.noneSatisfy(predicate);
     }
 
-    public Immutable<name2>Collection selectPrimitive(<name2>Predicate predicate)
+    public Immutable<name2>Collection selectImmutable(<name2>Predicate predicate)
     {
-        return this.delegate.selectPrimitive(predicate).toImmutable();
+        return this.delegate.selectImmutable(predicate).toImmutable();
     }
 
-    public Immutable<name2>Collection rejectPrimitive(<name2>Predicate predicate)
+    public Immutable<name2>Collection rejectImmutable(<name2>Predicate predicate)
     {
-        return this.delegate.rejectPrimitive(predicate).toImmutable();
+        return this.delegate.rejectImmutable(predicate).toImmutable();
     }
 
     public <type2> detectIfNone(<name2>Predicate predicate, <type2> ifNone)

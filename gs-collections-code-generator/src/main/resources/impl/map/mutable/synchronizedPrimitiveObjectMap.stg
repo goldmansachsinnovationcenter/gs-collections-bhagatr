@@ -288,7 +288,7 @@ public final class Synchronized<name>ObjectMap\<V>
         }
     }
 
-    public Mutable<name>ObjectMap\<V> selectPrimitive(<name>ObjectPredicate\<? super V> predicate)
+    public Mutable<name>ObjectMap\<V> selectMutable(<name>ObjectPredicate\<? super V> predicate)
     {
         synchronized (this.lock)
         {
@@ -296,7 +296,7 @@ public final class Synchronized<name>ObjectMap\<V>
         }
     }
 
-    public Mutable<name>ObjectMap\<V> rejectPrimitive(<name>ObjectPredicate\<? super V> predicate)
+    public Mutable<name>ObjectMap\<V> rejectMutable(<name>ObjectPredicate\<? super V> predicate)
     {
         synchronized (this.lock)
         {

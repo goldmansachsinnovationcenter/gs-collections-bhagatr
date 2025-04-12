@@ -37,12 +37,12 @@ public class GenerateMojo extends AbstractMojo
     /**
      * Skips code generation if true.
      *
-     * @parameter expression="${skipCodeGen}"
+     * @parameter property="skipCodeGen"
      */
     private boolean skipCodeGen;
 
     /**
-     * @parameter expression="${project.build.directory}/generated-sources"
+     * @parameter property="project.build.directory/generated-sources"
      * @required
      */
     private String templateDirectory;
@@ -50,7 +50,7 @@ public class GenerateMojo extends AbstractMojo
     /**
      * The Maven project to act upon.
      *
-     * @parameter expression="${project}"
+     * @parameter property="project"
      * @required
      */
     private MavenProject project;

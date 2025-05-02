@@ -101,7 +101,7 @@
                                 <DependencyConvergence />
                                 <requirePluginVersions />
                                 <requireJavaVersion>
-                                    <version>1.7.0</version>
+                                    <version>21.0.0</version>
                                 </requireJavaVersion>
                                 <requireMavenVersion>
                                     <version>3.0.2</version>
@@ -139,8 +139,8 @@
                         <arg>-target:jvm-1.8</arg>
                         <arg>-nobootcp</arg>
                     </args>
-                    <source>7</source>
-                    <target>7</target>
+                    <source>21</source>
+                    <target>21</target>
                 </configuration>
             </plugin>
 

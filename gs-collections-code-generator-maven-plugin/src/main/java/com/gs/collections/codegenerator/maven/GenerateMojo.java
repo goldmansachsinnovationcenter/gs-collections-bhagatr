@@ -25,34 +25,35 @@ import com.gs.collections.codegenerator.GsCollectionsCodeGenerator;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
+import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.apache.maven.project.MavenProject;
 
-/**
- * @goal generate
- * @phase generate-sources
- * @requiresDependencyResolution compile
- */
+@Mojo(
+    name = "generate",
+    defaultPhase = LifecyclePhase.GENERATE_SOURCES,
+    requiresDependencyResolution = ResolutionScope.COMPILE
+)
 public class GenerateMojo extends AbstractMojo
 {
     /**
      * Skips code generation if true.
-     *
-     * @parameter expression="${skipCodeGen}"
      */
+    @Parameter(property = "skipCodeGen")
     private boolean skipCodeGen;
 
     /**
-     * @parameter expression="${project.build.directory}/generated-sources"
-     * @required
+     * Directory containing templates for code generation.
      */
+    @Parameter(defaultValue = "${project.build.directory}/generated-sources", required = true)
     private String templateDirectory;
 
     /**
      * The Maven project to act upon.
-     *
-     * @parameter expression="${project}"
-     * @required
      */
+    @Parameter(defaultValue = "${project}", readonly = true, required = true)
     private MavenProject project;
 
     public void execute() throws MojoExecutionException, MojoFailureException

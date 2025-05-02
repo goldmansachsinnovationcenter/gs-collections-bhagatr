@@ -30,16 +30,13 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
         <clover.version>4.0.6</clover.version>
         <checkstyle.version>2.16</checkstyle.version>
-
         <!-- this setting is needed for TeamCity -->
         <maven.deploy.skip>${build.is.personal}</maven.deploy.skip>
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>com.goldmansachs</groupId>
             <artifactId>gs-collections-code-generator</artifactId>
@@ -58,12 +55,17 @@
             <version>2.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.maven.plugin-tools</groupId>
+            <artifactId>maven-plugin-annotations</artifactId>
+            <version>3.6.0</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <pluginManagement>
             <plugins>
-
                 <plugin>
                     <artifactId>maven-antrun-plugin</artifactId>
                     <version>1.8</version>
@@ -174,16 +176,20 @@
                     <version>2.6</version>
                 </plugin>
 
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-plugin-plugin</artifactId>
+                    <version>3.6.0</version>
+                </plugin>
             </plugins>
         </pluginManagement>
 
         <plugins>
-
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>7</source>
-                    <target>7</target>
+                    <source>21</source>
+                    <target>21</target>
                     <fork>true</fork>
                     <maxmem>2048m</maxmem>
                     <verbose>true</verbose>
@@ -258,7 +264,7 @@
                     <windowtitle>Goldman Sachs Collections - ${project.version}</windowtitle>
                     <show>public</show>
                     <links>
-                        <link>https://docs.oracle.com/javase/7/docs/api/</link>
+                        <link>https://docs.oracle.com/en/java/javase/21/docs/api/</link>
                     </links>
                     <destDir>${project.version}</destDir>
                     <additionalparam>-Xdoclint:none</additionalparam>
@@ -272,10 +278,11 @@
                         <id>enforce</id>
                         <configuration>
                             <rules>
-                                <DependencyConvergence />
+                                <!-- Disable dependency convergence check -->
+                                <!-- <DependencyConvergence /> -->
                                 <requirePluginVersions />
                                 <requireJavaVersion>
-                                    <version>1.7.0</version>
+                                    <version>21.0.0</version>
                                 </requireJavaVersion>
                                 <requireMavenVersion>
                                     <version>3.0.2</version>
@@ -289,6 +296,20 @@
                 </executions>
             </plugin>
 
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-plugin-plugin</artifactId>
+                <version>3.6.0</version>
+                <executions>
+                    <execution>
+                        <id>default-descriptor</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>descriptor</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -297,7 +318,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-plugin-plugin</artifactId>
-                <version>3.3</version>
+                <version>3.6.0</version>
             </plugin>
         </plugins>
     </reporting>

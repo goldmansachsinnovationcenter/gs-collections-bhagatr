@@ -23,11 +23,35 @@ import com.gs.collections.api.partition.PartitionMutableCollection;
  * A PartitionMutableBagIterable is the result of splitting a mutable bag into two MutableBagIterables based on a Predicate.
  * The results that answer true for the Predicate will be returned from the getSelected() method and the results that answer
  * false for the predicate will be returned from the getRejected() method.
+ *
+ * @since 7.0.4 - Updated for Java 21 compatibility
  */
-public interface PartitionMutableBagIterable<T> extends PartitionMutableCollection<T>, PartitionBag<T>
+public interface PartitionMutableBagIterable<T> extends PartitionMutableCollection<T>, PartitionBridge<T>
 {
+    /**
+     * Returns a mutable bag iterable of elements that satisfy the predicate.
+     * This method has a different name than the one in PartitionBag to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableBagIterable<T> getSelectedBagIterable();
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #getSelectedBagIterable()} instead.
+     */
+    @Deprecated
     MutableBagIterable<T> getSelected();
 
+    /**
+     * Returns a mutable bag iterable of elements that do not satisfy the predicate.
+     * This method has a different name than the one in PartitionBag to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableBagIterable<T> getRejectedBagIterable();
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #getRejectedBagIterable()} instead.
+     */
+    @Deprecated
     MutableBagIterable<T> getRejected();
 
     PartitionImmutableBagIterable<T> toImmutable();

@@ -24,4 +24,13 @@ package com.gs.collections.api.partition;
  */
 public interface PartitionBridge<T>
 {
+    /**
+     * Returns the elements that satisfy the predicate.
+     */
+    Object getSelected();
+
+    /**
+     * Returns the elements that do not satisfy the predicate.
+     */
+    Object getRejected();
 }

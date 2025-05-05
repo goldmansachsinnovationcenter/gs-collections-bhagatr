@@ -16,6 +16,8 @@
 
 package com.gs.collections.api.list;
 
+import java.util.List;
+
 import com.gs.collections.api.collection.FixedSizeCollection;
 
 /**
@@ -24,6 +26,14 @@ import com.gs.collections.api.collection.FixedSizeCollection;
  *
  * @since 7.0.4
  */
-public interface FixedSizeListBridge<T> extends ListBridge<T>, FixedSizeCollection<T>
+public interface FixedSizeListBridge<T> extends MutableList<T>, FixedSizeCollection<T>
 {
+    /**
+     * Bridge method to resolve clash between List and RichIterable
+     */
+    @Override
+    default List<T> castToList()
+    {
+        return this;
+    }
 }

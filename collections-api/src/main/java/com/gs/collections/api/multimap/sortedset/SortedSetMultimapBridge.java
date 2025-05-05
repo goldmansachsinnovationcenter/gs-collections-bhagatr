@@ -17,6 +17,8 @@
 package com.gs.collections.api.multimap.sortedset;
 
 import com.gs.collections.api.multimap.Multimap;
+import com.gs.collections.api.multimap.ordered.OrderedIterableMultimap;
+import com.gs.collections.api.set.sorted.SortedSetIterable;
 
 /**
  * A bridge interface to ensure compatibility between SortedSetMultimap and Multimap interfaces.
@@ -24,6 +26,14 @@ import com.gs.collections.api.multimap.Multimap;
  *
  * @since 7.0.4
  */
-public interface SortedSetMultimapBridge<K, V> extends SortedSetMultimap<K, V>, Multimap<K, V>
+public interface SortedSetMultimapBridge<K, V> extends SortedSetMultimap<K, V>, Multimap<K, V>, OrderedIterableMultimap<K, V>
 {
+    /**
+     * Bridge method to resolve clash between different multimap interfaces
+     */
+    @Override
+    default SortedSetIterable<V> get(K key)
+    {
+        return SortedSetMultimap.super.get(key);
+    }
 }

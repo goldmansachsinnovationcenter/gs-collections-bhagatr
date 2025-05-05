@@ -46,6 +46,15 @@ public interface Mutable<name>Bag extends Mutable<name>Collection
      */
     @Deprecated
     \<V> MutableBag\<V> collect(<name>ToObjectFunction\<? extends V> function);
+    
+    /**
+     * Implementation of the collectToBag method to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    default \<V> MutableBag\<V> collectToBag(<name>ToObjectFunction\<? extends V> function)
+    {
+        return this.collect(function);
+    }
 
     <mutableAPI(fileName(primitive), type, name)>
 

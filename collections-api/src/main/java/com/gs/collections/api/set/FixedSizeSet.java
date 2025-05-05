@@ -20,6 +20,8 @@ import com.gs.collections.api.collection.FixedSizeCollection;
 
 /**
  * A FixedSizeSet is a set that may be mutated, but cannot grow or shrink in size.
+ *
+ * @since 7.0.4 - Updated for Java 21 compatibility
  */
 public interface FixedSizeSet<T>
         extends MutableSet<T>, FixedSizeCollection<T>

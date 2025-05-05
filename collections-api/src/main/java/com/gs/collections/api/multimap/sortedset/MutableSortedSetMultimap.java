@@ -45,11 +45,7 @@ public interface MutableSortedSetMultimap<K, V>
      */
     MutableSortedSet<V> getValues(K key);
     
-    /**
-     * @deprecated As of 7.0.4, use {@link #getValues(Object)} instead.
-     */
-    @Deprecated
-    MutableSortedSet<V> get(K key);
+
 
     MutableSetMultimap<V, K> flip();
 

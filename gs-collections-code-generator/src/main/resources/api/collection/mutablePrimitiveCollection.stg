@@ -59,6 +59,17 @@ public interface Mutable<name>Collection extends <name>Iterable
 
     <sharedAPI(fileName(primitive), name)>
 
+    /**
+     * Returns a mutable collection of transformed values.
+     * This method has a different name than the one in <name>Iterable to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    \<V> MutableCollection\<V> collectObject(<name>ToObjectFunction\<? extends V> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #collectObject(<name>ToObjectFunction)} instead.
+     */
+    @Deprecated
     \<V> MutableCollection\<V> collect(<name>ToObjectFunction\<? extends V> function);
 
     <mutableAPI(fileName(primitive), type, name)>

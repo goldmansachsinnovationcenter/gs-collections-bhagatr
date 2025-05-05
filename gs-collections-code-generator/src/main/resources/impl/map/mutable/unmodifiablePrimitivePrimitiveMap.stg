@@ -260,6 +260,22 @@ public final class Unmodifiable<name1><name2>Map
     {
         return this.map.rejectPrimitive(predicate);
     }
+    
+    /**
+     * @since 7.0.4
+     */
+    public Mutable<name2>Collection select(<name2>Predicate predicate)
+    {
+        return this.map.selectPrimitive(predicate);
+    }
+
+    /**
+     * @since 7.0.4
+     */
+    public Mutable<name2>Collection reject(<name2>Predicate predicate)
+    {
+        return this.map.rejectPrimitive(predicate);
+    }
 
     public <type2> detectIfNone(<name2>Predicate predicate, <type2> ifNone)
     {

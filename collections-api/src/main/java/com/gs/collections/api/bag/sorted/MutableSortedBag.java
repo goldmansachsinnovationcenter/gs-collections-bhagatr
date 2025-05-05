@@ -53,7 +53,7 @@ import com.gs.collections.api.tuple.Pair;
  * @since 4.2
  */
 public interface MutableSortedBag<T>
-        extends SortedBag<T>, MutableBagIterable<T>, Cloneable
+        extends MutableSortedBagBridge<T>, Cloneable
 {
     MutableSortedBag<T> selectByOccurrences(IntPredicate predicate);
 

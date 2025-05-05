@@ -24,11 +24,25 @@ import com.gs.collections.api.set.sorted.MutableSortedSet;
  * The results that answer true for the Predicate will be returned from the getSelected() method and the results that answer
  * false for the predicate will be returned from the getRejected() method.
  */
-public interface PartitionMutableSortedSet<T> extends PartitionSortedSet<T>, PartitionMutableSetIterable<T>
+public interface PartitionMutableSortedSet<T> extends PartitionSortedSetBridge<T>, PartitionMutableSetIterable<T>, PartitionBridge<T>
 {
-    MutableSortedSet<T> getSelected();
+    /**
+     * Returns a mutable sorted set of elements that satisfy the predicate.
+     * This method has a different name than the one in PartitionSortedSet to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableSortedSet<T> getSelectedSet();
+    
 
-    MutableSortedSet<T> getRejected();
+
+    /**
+     * Returns a mutable sorted set of elements that do not satisfy the predicate.
+     * This method has a different name than the one in PartitionSortedSet to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableSortedSet<T> getRejectedSet();
+    
+
 
     PartitionImmutableSortedSet<T> toImmutable();
 }

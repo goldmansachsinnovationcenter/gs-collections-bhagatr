@@ -38,7 +38,21 @@ public interface <name>List extends Reversible<name>Iterable
 
     <sharedAPI(fileName(primitive), name)>
 
-    \<V> ListIterable\<V> collect(<name>ToObjectFunction\<? extends V> function);
+    /**
+     * Returns a list of transformed values.
+     * This method has a different name than the one in Mutable<name>List to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    \<V> ListIterable\<V> collectToListIterable(<name>ToObjectFunction\<? extends V> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #collectToListIterable(<name>ToObjectFunction)} instead.
+     */
+    @Deprecated
+    default \<V> ListIterable\<V> collect(<name>ToObjectFunction\<? extends V> function)
+    {
+        return this.collectToListIterable(function);
+    }
 
     /**
      * Follows the same general contract as {@link List#equals(Object)}.

@@ -33,7 +33,21 @@ public interface Mutable<name>Bag extends Mutable<name>Collection, <name>Bag
 
     <sharedAPI(fileName(primitive), name)>
 
-    \<V> MutableBag\<V> collect(<name>ToObjectFunction\<? extends V> function);
+    /**
+     * Returns a mutable bag of transformed values.
+     * This method has a different name than the one in <name>Bag to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    \<V> MutableBag\<V> collectToMutableBag(<name>ToObjectFunction\<? extends V> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #collectToMutableBag(<name>ToObjectFunction)} instead.
+     */
+    @Deprecated
+    default \<V> MutableBag\<V> collect(<name>ToObjectFunction\<? extends V> function)
+    {
+        return this.collectToMutableBag(function);
+    }
 
     <mutableAPI(fileName(primitive), type, name)>
 

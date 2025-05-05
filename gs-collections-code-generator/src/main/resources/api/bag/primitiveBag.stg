@@ -44,7 +44,21 @@ public interface <name>Bag extends <name>Iterable
 
     <sharedAPI(fileName(primitive), name)>
 
-    \<V> Bag\<V> collect(<name>ToObjectFunction\<? extends V> function);
+    /**
+     * Returns a bag of transformed values.
+     * This method has a different name than the one in Mutable<name>Bag to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    \<V> Bag\<V> collectToBag(<name>ToObjectFunction\<? extends V> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #collectToBag(<name>ToObjectFunction)} instead.
+     */
+    @Deprecated
+    default \<V> Bag\<V> collect(<name>ToObjectFunction\<? extends V> function)
+    {
+        return this.collectToBag(function);
+    }
 
     /**
      * Follows the same general contract as {@link Bag#equals(Object)}.

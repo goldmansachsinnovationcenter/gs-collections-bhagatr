@@ -30,7 +30,7 @@ import com.gs.collections.api.tuple.Pair;
  * @since 1.0
  */
 public interface MutableSortedSetMultimap<K, V>
-        extends MutableSetIterableMultimap<K, V>, SortedSetMultimap<K, V>
+        extends MutableSetIterableMultimap<K, V>, SortedSetMultimapBridge<K, V>, MultimapBridge<K, V>
 {
     MutableSortedSet<V> replaceValues(K key, Iterable<? extends V> values);
 
@@ -38,7 +38,14 @@ public interface MutableSortedSetMultimap<K, V>
 
     MutableSortedSetMultimap<K, V> newEmpty();
 
-    MutableSortedSet<V> get(K key);
+    /**
+     * Returns a mutable sorted set of values associated with the specified key.
+     * This method has a different name than the one in SortedSetMultimap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableSortedSet<V> getValues(K key);
+    
+
 
     MutableSetMultimap<V, K> flip();
 

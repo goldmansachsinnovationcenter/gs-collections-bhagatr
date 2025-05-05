@@ -41,7 +41,21 @@ public interface Mutable<name>List extends Mutable<name>Collection, <name>List
 
     <mutableAPI(fileName(primitive), type, name)>
 
-    \<V> MutableList\<V> collect(<name>ToObjectFunction\<? extends V> function);
+    /**
+     * Returns a mutable list of transformed values.
+     * This method has a different name than the one in <name>List to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    \<V> MutableList\<V> collectToMutableList(<name>ToObjectFunction\<? extends V> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #collectToMutableList(<name>ToObjectFunction)} instead.
+     */
+    @Deprecated
+    default \<V> MutableList\<V> collect(<name>ToObjectFunction\<? extends V> function)
+    {
+        return this.collectToMutableList(function);
+    }
 
     Mutable<name>List reverseThis();
 

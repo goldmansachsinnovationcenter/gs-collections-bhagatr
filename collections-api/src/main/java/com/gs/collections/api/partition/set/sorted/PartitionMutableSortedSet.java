@@ -33,11 +33,7 @@ public interface PartitionMutableSortedSet<T> extends PartitionSortedSetBridge<T
      */
     MutableSortedSet<T> getSelectedSet();
     
-    /**
-     * @deprecated As of 7.0.4, use {@link #getSelectedSet()} instead.
-     */
-    @Deprecated
-    MutableSortedSet<T> getSelected();
+
 
     /**
      * Returns a mutable sorted set of elements that do not satisfy the predicate.
@@ -46,11 +42,7 @@ public interface PartitionMutableSortedSet<T> extends PartitionSortedSetBridge<T
      */
     MutableSortedSet<T> getRejectedSet();
     
-    /**
-     * @deprecated As of 7.0.4, use {@link #getRejectedSet()} instead.
-     */
-    @Deprecated
-    MutableSortedSet<T> getRejected();
+
 
     PartitionImmutableSortedSet<T> toImmutable();
 }

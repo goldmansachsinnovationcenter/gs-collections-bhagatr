@@ -33,8 +33,9 @@ import com.gs.collections.api.tuple.Pair;
  * A {@link BiMap} whose contents can be altered after initialization.
  *
  * @since 4.2
+ * @since 7.0.4 - Updated for Java 21 compatibility
  */
-public interface MutableBiMap<K, V> extends BiMap<K, V>, MutableMapIterable<K, V>, Cloneable
+public interface MutableBiMap<K, V> extends MutableMapIterable<K, V>, Cloneable
 {
     MutableBiMap<K, V> newEmpty();
 
@@ -42,6 +43,17 @@ public interface MutableBiMap<K, V> extends BiMap<K, V>, MutableMapIterable<K, V
 
     MutableBiMap<V, K> flipUniqueValues();
 
+    /**
+     * Returns a mutable set multimap with the keys and values flipped.
+     * This method has a different name than the one in BiMap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableSetMultimap<V, K> flipKeysValues();
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #flipKeysValues()} instead.
+     */
+    @Deprecated
     MutableSetMultimap<V, K> flip();
 
     /**
@@ -73,16 +85,82 @@ public interface MutableBiMap<K, V> extends BiMap<K, V>, MutableMapIterable<K, V
 
     <R> MutableBiMap<K, R> collectValues(Function2<? super K, ? super V, ? extends R> function);
 
+    /**
+     * Returns a mutable set of elements that satisfy the predicate.
+     * This method has a different name than the one in BiMap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableSet<V> selectValues(Predicate<? super V> predicate);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #selectValues(Predicate)} instead.
+     */
+    @Deprecated
     MutableSet<V> select(Predicate<? super V> predicate);
 
+    /**
+     * Returns a mutable set of elements that satisfy the predicate.
+     * This method has a different name than the one in BiMap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <P> MutableSet<V> selectValuesWith(Predicate2<? super V, ? super P> predicate, P parameter);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #selectValuesWith(Predicate2, Object)} instead.
+     */
+    @Deprecated
     <P> MutableSet<V> selectWith(Predicate2<? super V, ? super P> predicate, P parameter);
 
+    /**
+     * Returns a mutable set of elements that do not satisfy the predicate.
+     * This method has a different name than the one in BiMap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableSet<V> rejectValues(Predicate<? super V> predicate);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #rejectValues(Predicate)} instead.
+     */
+    @Deprecated
     MutableSet<V> reject(Predicate<? super V> predicate);
 
+    /**
+     * Returns a mutable set of elements that do not satisfy the predicate.
+     * This method has a different name than the one in BiMap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <P> MutableSet<V> rejectValuesWith(Predicate2<? super V, ? super P> predicate, P parameter);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #rejectValuesWith(Predicate2, Object)} instead.
+     */
+    @Deprecated
     <P> MutableSet<V> rejectWith(Predicate2<? super V, ? super P> predicate, P parameter);
 
+    /**
+     * Returns a partition of the values based on the predicate.
+     * This method has a different name than the one in BiMap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    PartitionMutableSet<V> partitionValues(Predicate<? super V> predicate);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #partitionValues(Predicate)} instead.
+     */
+    @Deprecated
     PartitionMutableSet<V> partition(Predicate<? super V> predicate);
 
+    /**
+     * Returns a partition of the values based on the predicate.
+     * This method has a different name than the one in BiMap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <P> PartitionMutableSet<V> partitionValuesWith(Predicate2<? super V, ? super P> predicate, P parameter);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #partitionValuesWith(Predicate2, Object)} instead.
+     */
+    @Deprecated
     <P> PartitionMutableSet<V> partitionWith(Predicate2<? super V, ? super P> predicate, P parameter);
 
     <S> MutableSet<S> selectInstancesOf(Class<S> clazz);
@@ -91,8 +169,30 @@ public interface MutableBiMap<K, V> extends BiMap<K, V>, MutableMapIterable<K, V
 
     MutableSet<Pair<V, Integer>> zipWithIndex();
 
+    /**
+     * Returns a mutable set multimap of elements grouped by the specified function.
+     * This method has a different name than the one in BiMap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <V1> MutableSetMultimap<V1, V> groupByToSet(Function<? super V, ? extends V1> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #groupByToSet(Function)} instead.
+     */
+    @Deprecated
     <V1> MutableSetMultimap<V1, V> groupBy(Function<? super V, ? extends V1> function);
 
+    /**
+     * Returns a mutable set multimap of elements grouped by each value in the specified function.
+     * This method has a different name than the one in BiMap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <V1> MutableSetMultimap<V1, V> groupByEachToSet(Function<? super V, ? extends Iterable<V1>> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #groupByEachToSet(Function)} instead.
+     */
+    @Deprecated
     <V1> MutableSetMultimap<V1, V> groupByEach(Function<? super V, ? extends Iterable<V1>> function);
 
     <VV> MutableBiMap<VV, V> groupByUniqueKey(Function<? super V, ? extends VV> function);

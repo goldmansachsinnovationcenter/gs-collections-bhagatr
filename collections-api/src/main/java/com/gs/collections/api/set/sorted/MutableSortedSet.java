@@ -56,10 +56,11 @@ import com.gs.collections.api.tuple.Pair;
  * A MutableSortedSet is an implementation of a JCF SortedSet which provides methods matching the Smalltalk Collection
  * protocol.
  *
+ * @since 1.0
  * @since 7.0.4 - Updated for Java 21 compatibility
  */
 public interface MutableSortedSet<T>
-        extends MutableSetIterable<T>, SortedSetBridge<T>, Cloneable
+        extends MutableSetIterable<T>, SortedSet<T>, Cloneable
 {
     MutableSortedSet<T> with(T element);
 

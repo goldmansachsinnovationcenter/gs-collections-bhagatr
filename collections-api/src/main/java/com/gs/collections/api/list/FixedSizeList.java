@@ -22,9 +22,6 @@ import com.gs.collections.api.collection.FixedSizeCollection;
  * A FixedSizeList is a list that may be mutated, but cannot grow or shrink in size.  The typical
  * mutation allowed for a FixedSizeList implementation is a working implementation for set(int, T).
  * This will allow the FixedSizeList to be sorted.
- */
-/**
- * A FixedSizeList is a list that may be mutated, but cannot grow or shrink in size.
  *
  * @since 7.0.4 - Updated for Java 21 compatibility
  */

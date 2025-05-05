@@ -44,7 +44,7 @@ import com.gs.collections.api.multimap.list.MutableListMultimap;
 import com.gs.collections.api.partition.list.PartitionMutableList;
 import com.gs.collections.api.tuple.Pair;
 
-public interface MutableOrderedMap<K, V> extends OrderedMap<K, V>, MutableMapIterable<K, V>
+public interface MutableOrderedMap<K, V> extends OrderedMapBridge<K, V>, MutableMapIterable<K, V>
 {
     MutableOrderedMap<K, V> tap(Procedure<? super V> procedure);
 
@@ -72,14 +72,69 @@ public interface MutableOrderedMap<K, V> extends OrderedMap<K, V>, MutableMapIte
 
     PartitionMutableList<V> partitionWhile(Predicate<? super V> predicate);
 
+    /**
+     * Returns a mutable list of distinct values.
+     * This method has a different name than the one in OrderedMap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableList<V> distinctValues();
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #distinctValues()} instead.
+     */
+    @Deprecated
     MutableList<V> distinct();
 
+    /**
+     * Returns a mutable list of values that match the given predicate.
+     * This method has a different name than the one in OrderedMap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableList<V> selectValues(Predicate<? super V> predicate);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #selectValues(Predicate)} instead.
+     */
+    @Deprecated
     MutableList<V> select(Predicate<? super V> predicate);
 
+    /**
+     * Returns a mutable list of values that match the given predicate and parameter.
+     * This method has a different name than the one in OrderedMap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <P> MutableList<V> selectValuesWith(Predicate2<? super V, ? super P> predicate, P parameter);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #selectValuesWith(Predicate2, Object)} instead.
+     */
+    @Deprecated
     <P> MutableList<V> selectWith(Predicate2<? super V, ? super P> predicate, P parameter);
 
+    /**
+     * Returns a mutable list of values that do not match the given predicate.
+     * This method has a different name than the one in OrderedMap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableList<V> rejectValues(Predicate<? super V> predicate);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #rejectValues(Predicate)} instead.
+     */
+    @Deprecated
     MutableList<V> reject(Predicate<? super V> predicate);
 
+    /**
+     * Returns a mutable list of values that do not match the given predicate and parameter.
+     * This method has a different name than the one in OrderedMap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <P> MutableList<V> rejectValuesWith(Predicate2<? super V, ? super P> predicate, P parameter);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #rejectValuesWith(Predicate2, Object)} instead.
+     */
+    @Deprecated
     <P> MutableList<V> rejectWith(Predicate2<? super V, ? super P> predicate, P parameter);
 
     PartitionMutableList<V> partition(Predicate<? super V> predicate);
@@ -102,16 +157,82 @@ public interface MutableOrderedMap<K, V> extends OrderedMap<K, V>, MutableMapIte
 
     MutableShortList collectShort(ShortFunction<? super V> shortFunction);
 
+    /**
+     * Returns a mutable list of pairs of values and elements from the provided iterable.
+     * This method has a different name than the one in OrderedMap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <S> MutableList<Pair<V, S>> zipValues(Iterable<S> that);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #zipValues(Iterable)} instead.
+     */
+    @Deprecated
     <S> MutableList<Pair<V, S>> zip(Iterable<S> that);
 
+    /**
+     * Returns a mutable list of pairs of values and their indices.
+     * This method has a different name than the one in OrderedMap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableList<Pair<V, Integer>> zipValuesWithIndex();
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #zipValuesWithIndex()} instead.
+     */
+    @Deprecated
     MutableList<Pair<V, Integer>> zipWithIndex();
 
+    /**
+     * Returns a mutable list of transformed values using the function and parameter.
+     * This method has a different name than the one in OrderedMap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <P, V1> MutableList<V1> collectValuesWith(Function2<? super V, ? super P, ? extends V1> function, P parameter);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #collectValuesWith(Function2, Object)} instead.
+     */
+    @Deprecated
     <P, V1> MutableList<V1> collectWith(Function2<? super V, ? super P, ? extends V1> function, P parameter);
 
+    /**
+     * Returns a mutable list of transformed values that match the predicate.
+     * This method has a different name than the one in OrderedMap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <V1> MutableList<V1> collectValuesIf(Predicate<? super V> predicate, Function<? super V, ? extends V1> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #collectValuesIf(Predicate, Function)} instead.
+     */
+    @Deprecated
     <V1> MutableList<V1> collectIf(Predicate<? super V> predicate, Function<? super V, ? extends V1> function);
 
+    /**
+     * Returns a mutable list of values that are instances of the specified class.
+     * This method has a different name than the one in OrderedMap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <S> MutableList<S> selectValuesInstancesOf(Class<S> clazz);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #selectValuesInstancesOf(Class)} instead.
+     */
+    @Deprecated
     <S> MutableList<S> selectInstancesOf(Class<S> clazz);
 
+    /**
+     * Returns a mutable list of all elements from the nested iterables.
+     * This method has a different name than the one in OrderedMap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <V1> MutableList<V1> flatCollectValues(Function<? super V, ? extends Iterable<V1>> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #flatCollectValues(Function)} instead.
+     */
+    @Deprecated
     <V1> MutableList<V1> flatCollect(Function<? super V, ? extends Iterable<V1>> function);
 
     <V1> MutableListMultimap<V1, V> groupBy(Function<? super V, ? extends V1> function);

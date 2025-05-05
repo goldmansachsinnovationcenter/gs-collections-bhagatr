@@ -51,6 +51,17 @@ public interface MutableSortedBagMultimap<K, V>
     @Deprecated
     MutableSortedBag<V> get(K key);
 
+    /**
+     * Returns a mutable bag multimap with the keys and values flipped.
+     * This method has a different name than the one in SortedBagMultimap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableBagMultimap<V, K> flipKeysValues();
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #flipKeysValues()} instead.
+     */
+    @Deprecated
     MutableBagMultimap<V, K> flip();
 
     MutableSortedBagMultimap<K, V> selectKeysValues(Predicate2<? super K, ? super V> predicate);
@@ -61,7 +72,29 @@ public interface MutableSortedBagMultimap<K, V>
 
     MutableSortedBagMultimap<K, V> rejectKeysMultiValues(Predicate2<? super K, ? super Iterable<V>> predicate);
 
+    /**
+     * Returns a mutable bag multimap of transformed keys and values.
+     * This method has a different name than the one in SortedBagMultimap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <K2, V2> MutableBagMultimap<K2, V2> collectToKeysValues(Function2<? super K, ? super V, Pair<K2, V2>> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #collectToKeysValues(Function2)} instead.
+     */
+    @Deprecated
     <K2, V2> MutableBagMultimap<K2, V2> collectKeysValues(Function2<? super K, ? super V, Pair<K2, V2>> function);
 
+    /**
+     * Returns a mutable list multimap with transformed values.
+     * This method has a different name than the one in SortedBagMultimap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <V2> MutableListMultimap<K, V2> collectToValues(Function<? super V, ? extends V2> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #collectToValues(Function)} instead.
+     */
+    @Deprecated
     <V2> MutableListMultimap<K, V2> collectValues(Function<? super V, ? extends V2> function);
 }

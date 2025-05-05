@@ -101,12 +101,6 @@ public interface MutableSortedMap<K, V>
      * @since 7.0.4
      */
     <R> MutableList<R> collectValues(Function<? super V, ? extends R> function);
-    
-    /**
-     * @deprecated As of 7.0.4, use {@link #collectValues(Function)} instead.
-     */
-    @Deprecated
-    <R> MutableList<R> collect(Function<? super V, ? extends R> function);
 
     MutableBooleanList collectBoolean(BooleanFunction<? super V> booleanFunction);
 
@@ -130,12 +124,6 @@ public interface MutableSortedMap<K, V>
      * @since 7.0.4
      */
     <P, VV> MutableList<VV> collectValuesWith(Function2<? super V, ? super P, ? extends VV> function, P parameter);
-    
-    /**
-     * @deprecated As of 7.0.4, use {@link #collectValuesWith(Function2, Object)} instead.
-     */
-    @Deprecated
-    <P, VV> MutableList<VV> collectWith(Function2<? super V, ? super P, ? extends VV> function, P parameter);
 
     /**
      * Returns a mutable list of transformed values that match the predicate.
@@ -143,12 +131,6 @@ public interface MutableSortedMap<K, V>
      * @since 7.0.4
      */
     <R> MutableList<R> collectValuesIf(Predicate<? super V> predicate, Function<? super V, ? extends R> function);
-    
-    /**
-     * @deprecated As of 7.0.4, use {@link #collectValuesIf(Predicate, Function)} instead.
-     */
-    @Deprecated
-    <R> MutableList<R> collectIf(Predicate<? super V> predicate, Function<? super V, ? extends R> function);
 
     /**
      * Returns a mutable list of all elements from the nested iterables.
@@ -156,12 +138,6 @@ public interface MutableSortedMap<K, V>
      * @since 7.0.4
      */
     <R> MutableList<R> flatCollectValues(Function<? super V, ? extends Iterable<R>> function);
-    
-    /**
-     * @deprecated As of 7.0.4, use {@link #flatCollectValues(Function)} instead.
-     */
-    @Deprecated
-    <R> MutableList<R> flatCollect(Function<? super V, ? extends Iterable<R>> function);
 
     MutableSortedMap<K, V> tap(Procedure<? super V> procedure);
 
@@ -171,12 +147,6 @@ public interface MutableSortedMap<K, V>
      * @since 7.0.4
      */
     MutableList<V> selectValues(Predicate<? super V> predicate);
-    
-    /**
-     * @deprecated As of 7.0.4, use {@link #selectValues(Predicate)} instead.
-     */
-    @Deprecated
-    MutableList<V> select(Predicate<? super V> predicate);
 
     /**
      * Returns a mutable list of values that match the given predicate and parameter.
@@ -184,12 +154,6 @@ public interface MutableSortedMap<K, V>
      * @since 7.0.4
      */
     <P> MutableList<V> selectValuesWith(Predicate2<? super V, ? super P> predicate, P parameter);
-    
-    /**
-     * @deprecated As of 7.0.4, use {@link #selectValuesWith(Predicate2, Object)} instead.
-     */
-    @Deprecated
-    <P> MutableList<V> selectWith(Predicate2<? super V, ? super P> predicate, P parameter);
 
     /**
      * Returns a mutable list of values that do not match the given predicate.
@@ -197,12 +161,6 @@ public interface MutableSortedMap<K, V>
      * @since 7.0.4
      */
     MutableList<V> rejectValues(Predicate<? super V> predicate);
-    
-    /**
-     * @deprecated As of 7.0.4, use {@link #rejectValues(Predicate)} instead.
-     */
-    @Deprecated
-    MutableList<V> reject(Predicate<? super V> predicate);
 
     /**
      * Returns a mutable list of values that do not match the given predicate and parameter.
@@ -210,12 +168,6 @@ public interface MutableSortedMap<K, V>
      * @since 7.0.4
      */
     <P> MutableList<V> rejectValuesWith(Predicate2<? super V, ? super P> predicate, P parameter);
-    
-    /**
-     * @deprecated As of 7.0.4, use {@link #rejectValuesWith(Predicate2, Object)} instead.
-     */
-    @Deprecated
-    <P> MutableList<V> rejectWith(Predicate2<? super V, ? super P> predicate, P parameter);
 
     PartitionMutableList<V> partition(Predicate<? super V> predicate);
 
@@ -228,11 +180,7 @@ public interface MutableSortedMap<K, V>
      */
     <S> MutableList<S> selectValuesInstancesOf(Class<S> clazz);
     
-    /**
-     * @deprecated As of 7.0.4, use {@link #selectValuesInstancesOf(Class)} instead.
-     */
-    @Deprecated
-    <S> MutableList<S> selectInstancesOf(Class<S> clazz);
+
 
     /**
      * Returns a mutable list of pairs of values and elements from the provided iterable.
@@ -241,11 +189,7 @@ public interface MutableSortedMap<K, V>
      */
     <S> MutableList<Pair<V, S>> zipValues(Iterable<S> that);
     
-    /**
-     * @deprecated As of 7.0.4, use {@link #zipValues(Iterable)} instead.
-     */
-    @Deprecated
-    <S> MutableList<Pair<V, S>> zip(Iterable<S> that);
+
 
     /**
      * Returns a mutable list of pairs of values and their indices.
@@ -254,11 +198,7 @@ public interface MutableSortedMap<K, V>
      */
     MutableList<Pair<V, Integer>> zipValuesWithIndex();
     
-    /**
-     * @deprecated As of 7.0.4, use {@link #zipValuesWithIndex()} instead.
-     */
-    @Deprecated
-    MutableList<Pair<V, Integer>> zipWithIndex();
+
 
     MutableSortedMap<K, V> toReversed();
 
@@ -279,11 +219,7 @@ public interface MutableSortedMap<K, V>
      */
     MutableList<V> distinctValues();
     
-    /**
-     * @deprecated As of 7.0.4, use {@link #distinctValues()} instead.
-     */
-    @Deprecated
-    MutableList<V> distinct();
+
 
     MutableSet<Entry<K, V>> entrySet();
 
@@ -330,11 +266,7 @@ public interface MutableSortedMap<K, V>
 
     MutableSortedMap<K, V> withAllKeyValueArguments(Pair<? extends K, ? extends V>... keyValuePairs);
 
-    /**
-     * @deprecated in 6.0 Use {@link #withAllKeyValueArguments(Pair[])} instead. Inlineable.
-     */
-    @Deprecated
-    MutableSortedMap<K, V> with(Pair<K, V>... pairs);
+
 
     MutableSortedMap<K, V> withoutKey(K key);
 

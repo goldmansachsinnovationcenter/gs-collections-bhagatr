@@ -45,6 +45,9 @@ import com.gs.collections.api.stack.primitive.MutableLongStack;
 import com.gs.collections.api.stack.primitive.MutableShortStack;
 import com.gs.collections.api.tuple.Pair;
 
+/**
+ * @since 7.0.4 - Updated for Java 21 compatibility
+ */
 public interface MutableStack<T> extends StackIterable<T>
 {
     /**
@@ -118,8 +121,30 @@ public interface MutableStack<T> extends StackIterable<T>
 
     <V> MutableStack<V> flatCollect(Function<? super T, ? extends Iterable<V>> function);
 
+    /**
+     * Returns a mutable list multimap of elements grouped by the specified function.
+     * This method has a different name than the one in StackIterable to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <V> MutableListMultimap<V, T> groupByToList(Function<? super T, ? extends V> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #groupByToList(Function)} instead.
+     */
+    @Deprecated
     <V> MutableListMultimap<V, T> groupBy(Function<? super T, ? extends V> function);
 
+    /**
+     * Returns a mutable list multimap of elements grouped by each value in the specified function.
+     * This method has a different name than the one in StackIterable to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <V> MutableListMultimap<V, T> groupByEachToList(Function<? super T, ? extends Iterable<V>> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #groupByEachToList(Function)} instead.
+     */
+    @Deprecated
     <V> MutableListMultimap<V, T> groupByEach(Function<? super T, ? extends Iterable<V>> function);
 
     <V> MutableMap<V, T> groupByUniqueKey(Function<? super T, ? extends V> function);

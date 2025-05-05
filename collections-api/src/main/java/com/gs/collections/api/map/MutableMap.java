@@ -50,9 +50,11 @@ import com.gs.collections.api.tuple.Pair;
 /**
  * A MutableMap is similar to a JCF Map but adds additional useful internal iterator methods. The MutableMap interface
  * additionally implements some of the methods in the Smalltalk Dictionary protocol.
+ *
+ * @since 7.0.4 - Updated for Java 21 compatibility
  */
 public interface MutableMap<K, V>
-        extends MutableMapIterable<K, V>, UnsortedMapIterable<K, V>, Cloneable
+        extends MutableMapIterable<K, V>, Cloneable
 {
     /**
      * Adds all the entries derived from {@code iterable} to {@code this}. The key and value for each entry
@@ -73,6 +75,17 @@ public interface MutableMap<K, V>
 
     MutableMap<K, V> asSynchronized();
 
+    /**
+     * Returns a mutable set multimap with the keys and values flipped.
+     * This method has a different name than the one in UnsortedMapIterable to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableSetMultimap<V, K> flipKeysValues();
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #flipKeysValues()} instead.
+     */
+    @Deprecated
     MutableSetMultimap<V, K> flip();
 
     MutableMap<K, V> select(Predicate2<? super K, ? super V> predicate);
@@ -85,12 +98,56 @@ public interface MutableMap<K, V>
 
     MutableMap<K, V> tap(Procedure<? super V> procedure);
 
+    /**
+     * Returns a mutable bag of elements that satisfy the predicate.
+     * This method has a different name than the one in UnsortedMapIterable to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableBag<V> selectValues(Predicate<? super V> predicate);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #selectValues(Predicate)} instead.
+     */
+    @Deprecated
     MutableBag<V> select(Predicate<? super V> predicate);
 
+    /**
+     * Returns a mutable bag of elements that satisfy the predicate.
+     * This method has a different name than the one in UnsortedMapIterable to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <P> MutableBag<V> selectValuesWith(Predicate2<? super V, ? super P> predicate, P parameter);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #selectValuesWith(Predicate2, Object)} instead.
+     */
+    @Deprecated
     <P> MutableBag<V> selectWith(Predicate2<? super V, ? super P> predicate, P parameter);
 
+    /**
+     * Returns a mutable bag of elements that do not satisfy the predicate.
+     * This method has a different name than the one in UnsortedMapIterable to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableBag<V> rejectValues(Predicate<? super V> predicate);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #rejectValues(Predicate)} instead.
+     */
+    @Deprecated
     MutableBag<V> reject(Predicate<? super V> predicate);
 
+    /**
+     * Returns a mutable bag of elements that do not satisfy the predicate.
+     * This method has a different name than the one in UnsortedMapIterable to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <P> MutableBag<V> rejectValuesWith(Predicate2<? super V, ? super P> predicate, P parameter);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #rejectValuesWith(Predicate2, Object)} instead.
+     */
+    @Deprecated
     <P> MutableBag<V> rejectWith(Predicate2<? super V, ? super P> predicate, P parameter);
 
     PartitionMutableBag<V> partition(Predicate<? super V> predicate);
@@ -99,6 +156,17 @@ public interface MutableMap<K, V>
 
     <S> MutableBag<S> selectInstancesOf(Class<S> clazz);
 
+    /**
+     * Returns a mutable bag of transformed values.
+     * This method has a different name than the one in UnsortedMapIterable to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <R> MutableBag<R> collectValues(Function<? super V, ? extends R> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #collectValues(Function)} instead.
+     */
+    @Deprecated
     <R> MutableBag<R> collect(Function<? super V, ? extends R> function);
 
     <P, V1> MutableBag<V1> collectWith(Function2<? super V, ? super P, ? extends V1> function, P parameter);

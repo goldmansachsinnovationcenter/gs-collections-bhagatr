@@ -71,6 +71,15 @@ public interface Mutable<name>Collection extends <name>Iterable
      */
     @Deprecated
     \<V> MutableCollection\<V> collect(<name>ToObjectFunction\<? extends V> function);
+    
+    /**
+     * Implementation of the collectObject method to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    default \<V> MutableCollection\<V> collectObject(<name>ToObjectFunction\<? extends V> function)
+    {
+        return this.collect(function);
+    }
 
     <mutableAPI(fileName(primitive), type, name)>
 

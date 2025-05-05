@@ -29,8 +29,11 @@ import com.gs.collections.api.tuple.Pair;
 /**
  * @since 1.0
  */
+/**
+ * @since 7.0.4 - Updated for Java 21 compatibility
+ */
 public interface MutableSortedSetMultimap<K, V>
-        extends MutableSetIterableMultimap<K, V>, SortedSetMultimapBridge<K, V>, MultimapBridge<K, V>
+        extends MutableSetIterableMultimap<K, V>
 {
     MutableSortedSet<V> replaceValues(K key, Iterable<? extends V> values);
 

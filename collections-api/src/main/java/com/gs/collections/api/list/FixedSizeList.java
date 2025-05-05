@@ -28,5 +28,10 @@ import com.gs.collections.api.collection.FixedSizeCollection;
 public interface FixedSizeList<T>
         extends MutableList<T>, FixedSizeCollection<T>
 {
+    /**
+     * Returns a new FixedSizeList with the elements in reverse order.
+     * @return a new FixedSizeList with the elements in reverse order
+     * @since 1.0
+     */
     FixedSizeList<T> toReversed();
 }

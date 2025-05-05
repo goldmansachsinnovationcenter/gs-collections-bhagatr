@@ -55,8 +55,11 @@ import com.gs.collections.api.tuple.Pair;
  * A MutableSortedMap is similar to a JCF Map but adds additional useful internal iterator methods.
  * The MutableSortedMap interface additionally implements some of the methods in the Smalltalk Dictionary protocol.
  */
+/**
+ * @since 7.0.4 - Updated for Java 21 compatibility
+ */
 public interface MutableSortedMap<K, V>
-        extends MutableMapIterable<K, V>, SortedMapBridge<K, V>, SortedMap<K, V>, Cloneable
+        extends MutableMapIterable<K, V>, SortedMap<K, V>, Cloneable
 {
     /**
      * Creates a new instance of the same type with the same internal Comparator.

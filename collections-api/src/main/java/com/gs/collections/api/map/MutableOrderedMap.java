@@ -44,7 +44,10 @@ import com.gs.collections.api.multimap.list.MutableListMultimap;
 import com.gs.collections.api.partition.list.PartitionMutableList;
 import com.gs.collections.api.tuple.Pair;
 
-public interface MutableOrderedMap<K, V> extends OrderedMapBridge<K, V>, MutableMapIterable<K, V>
+/**
+ * @since 7.0.4 - Updated for Java 21 compatibility
+ */
+public interface MutableOrderedMap<K, V> extends MutableMapIterable<K, V>
 {
     MutableOrderedMap<K, V> tap(Procedure<? super V> procedure);
 

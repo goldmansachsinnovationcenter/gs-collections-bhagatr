@@ -44,9 +44,11 @@ import com.gs.collections.api.tuple.Pair;
 
 /**
  * A MutableSet is an implementation of a JCF Set which provides methods matching the Smalltalk Collection protocol.
+ *
+ * @since 7.0.4 - Updated for Java 21 compatibility
  */
 public interface MutableSet<T>
-        extends UnsortedSetIterable<T>, MutableSetIterable<T>, Cloneable
+        extends MutableSetIterable<T>, Cloneable
 {
     MutableSet<T> with(T element);
 
@@ -117,8 +119,30 @@ public interface MutableSet<T>
      */
     ImmutableSet<T> toImmutable();
 
+    /**
+     * Returns a mutable set multimap of elements grouped by the specified function.
+     * This method has a different name than the one in UnsortedSetIterable to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <V> MutableSetMultimap<V, T> groupByToSet(Function<? super T, ? extends V> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #groupByToSet(Function)} instead.
+     */
+    @Deprecated
     <V> MutableSetMultimap<V, T> groupBy(Function<? super T, ? extends V> function);
 
+    /**
+     * Returns a mutable set multimap of elements grouped by each value in the specified function.
+     * This method has a different name than the one in UnsortedSetIterable to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <V> MutableSetMultimap<V, T> groupByEachToSet(Function<? super T, ? extends Iterable<V>> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #groupByEachToSet(Function)} instead.
+     */
+    @Deprecated
     <V> MutableSetMultimap<V, T> groupByEach(Function<? super T, ? extends Iterable<V>> function);
 
     /**

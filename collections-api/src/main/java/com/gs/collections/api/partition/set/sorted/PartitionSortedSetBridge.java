@@ -17,7 +17,6 @@
 package com.gs.collections.api.partition.set.sorted;
 
 import com.gs.collections.api.partition.ordered.PartitionOrderedIterable;
-import com.gs.collections.api.set.sorted.SortedSetIterable;
 
 /**
  * A bridge interface to ensure compatibility between PartitionSortedSet and PartitionOrderedIterable interfaces.
@@ -27,21 +26,4 @@ import com.gs.collections.api.set.sorted.SortedSetIterable;
  */
 public interface PartitionSortedSetBridge<T> extends PartitionSortedSet<T>, PartitionOrderedIterable<T>
 {
-    /**
-     * Bridge method to resolve clash between PartitionSortedSet and PartitionOrderedIterable
-     */
-    @Override
-    default SortedSetIterable<T> getSelected()
-    {
-        return PartitionSortedSet.super.getSelected();
-    }
-
-    /**
-     * Bridge method to resolve clash between PartitionSortedSet and PartitionOrderedIterable
-     */
-    @Override
-    default SortedSetIterable<T> getRejected()
-    {
-        return PartitionSortedSet.super.getRejected();
-    }
 }

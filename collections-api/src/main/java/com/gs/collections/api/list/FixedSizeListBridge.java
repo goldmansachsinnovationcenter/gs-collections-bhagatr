@@ -16,24 +16,14 @@
 
 package com.gs.collections.api.list;
 
-import java.util.List;
-
 import com.gs.collections.api.collection.FixedSizeCollection;
 
 /**
- * A bridge interface to resolve method clashes between FixedSizeCollection and ListBridge.
+ * A bridge interface to resolve method clashes between FixedSizeCollection and MutableList.
  * This interface is used to avoid method clashes in Java 21's stricter type checking.
  *
  * @since 7.0.4
  */
 public interface FixedSizeListBridge<T> extends MutableList<T>, FixedSizeCollection<T>
 {
-    /**
-     * Bridge method to resolve clash between List and RichIterable
-     */
-    @Override
-    default List<T> castToList()
-    {
-        return this;
-    }
 }

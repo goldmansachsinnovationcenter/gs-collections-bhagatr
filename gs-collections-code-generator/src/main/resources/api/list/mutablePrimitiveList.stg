@@ -24,8 +24,9 @@ import com.gs.collections.api.list.MutableList;
  * This file was automatically generated from template file mutablePrimitiveList.stg.
  *
  * @since 3.0.
+ * @since 7.0.4 - Updated for Java 21 compatibility
  */
-public interface Mutable<name>List extends Mutable<name>Collection, <name>List
+public interface Mutable<name>List extends Mutable<name>Collection
 {
     void addAtIndex(int index, <type> element);
 
@@ -40,6 +41,15 @@ public interface Mutable<name>List extends Mutable<name>Collection, <name>List
     <sharedAPI(fileName(primitive), name)>
 
     <mutableAPI(fileName(primitive), type, name)>
+    
+    // Methods from <name>List interface
+    <type> get(int index);
+    
+    int indexOf(<type> value);
+    
+    int lastIndexOf(<type> value);
+    
+    <name>List subList(int fromIndex, int toIndex);
 
     /**
      * Returns a mutable list of transformed values.
@@ -49,7 +59,7 @@ public interface Mutable<name>List extends Mutable<name>Collection, <name>List
     \<V> MutableList\<V> collectObject(<name>ToObjectFunction\<? extends V> function);
     
     /**
-     * @deprecated As of 7.0.4, use {@link #collectObject(name>ToObjectFunction)} instead.
+     * @deprecated As of 7.0.4, use {@link #collectObject(<name>ToObjectFunction)} instead.
      */
     @Deprecated
     \<V> MutableList\<V> collect(<name>ToObjectFunction\<? extends V> function);
@@ -82,6 +92,7 @@ public interface Mutable<name>List extends Mutable<name>Collection, <name>List
      */
     Immutable<name>List toImmutable();
 
+    @Override
     Mutable<name>List subList(int fromIndex, int toIndex);
 }
 

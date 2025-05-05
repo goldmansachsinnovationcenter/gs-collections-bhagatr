@@ -50,14 +50,11 @@ import com.gs.collections.api.tuple.Pair;
 
 /**
  * A MutableList is an implementation of a JCF List which provides methods matching the Smalltalk Collection protocol.
- */
-/**
- * A MutableList is an implementation of a JCF List which provides methods matching the Smalltalk Collection protocol.
  *
  * @since 7.0.4 - Updated for Java 21 compatibility
  */
 public interface MutableList<T>
-        extends MutableCollection<T>, List<T>, Cloneable
+        extends MutableCollection<T>, ListBridge<T>, Cloneable
 {
     MutableList<T> with(T element);
 

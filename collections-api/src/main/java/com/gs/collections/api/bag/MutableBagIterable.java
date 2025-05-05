@@ -30,7 +30,10 @@ import com.gs.collections.api.set.MutableSetIterable;
 import com.gs.collections.api.tuple.Pair;
 import com.gs.collections.api.tuple.primitive.ObjectIntPair;
 
-public interface MutableBagIterable<T> extends Bag<T>, MutableCollection<T>
+/**
+ * @since 7.0.4 - Updated for Java 21 compatibility
+ */
+public interface MutableBagIterable<T> extends MutableCollection<T>
 {
     void addOccurrences(T item, int occurrences);
 
@@ -62,16 +65,45 @@ public interface MutableBagIterable<T> extends Bag<T>, MutableCollection<T>
 
     MutableBagIterable<T> selectByOccurrences(IntPredicate predicate);
 
+    /**
+     * Returns a mutable map of items to counts.
+     * This method has a different name than the one in Bag to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableMapIterable<T, Integer> toItemCountMap();
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #toItemCountMap()} instead.
+     */
+    @Deprecated
     MutableMapIterable<T, Integer> toMapOfItemToCount();
 
     /**
-     * @since 6.0
+     * Returns a mutable list of the top occurrences.
+     * This method has a different name than the one in Bag to avoid method clash in Java 21.
+     * @since 7.0.4
      */
+    MutableList<ObjectIntPair<T>> getTopOccurrences(int count);
+    
+    /**
+     * @since 6.0
+     * @deprecated As of 7.0.4, use {@link #getTopOccurrences(int)} instead.
+     */
+    @Deprecated
     MutableList<ObjectIntPair<T>> topOccurrences(int count);
 
     /**
-     * @since 6.0
+     * Returns a mutable list of the bottom occurrences.
+     * This method has a different name than the one in Bag to avoid method clash in Java 21.
+     * @since 7.0.4
      */
+    MutableList<ObjectIntPair<T>> getBottomOccurrences(int count);
+    
+    /**
+     * @since 6.0
+     * @deprecated As of 7.0.4, use {@link #getBottomOccurrences(int)} instead.
+     */
+    @Deprecated
     MutableList<ObjectIntPair<T>> bottomOccurrences(int count);
 
     MutableBagIterable<T> with(T element);

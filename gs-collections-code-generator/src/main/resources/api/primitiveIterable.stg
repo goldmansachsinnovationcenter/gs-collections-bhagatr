@@ -52,6 +52,17 @@ public interface <name>Iterable extends PrimitiveIterable
 
     <name>Iterable reject(<name>Predicate predicate);
 
+    /**
+     * Returns a RichIterable of transformed values.
+     * This method has a different name than the one in MutablePrimitiveCollection to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    \<V> RichIterable\<V> collectToObject(<name>ToObjectFunction\<? extends V> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #collectToObject(<name>ToObjectFunction)} instead.
+     */
+    @Deprecated
     \<V> RichIterable\<V> collect(<name>ToObjectFunction\<? extends V> function);
 
     <type> detectIfNone(<name>Predicate predicate, <type> ifNone);

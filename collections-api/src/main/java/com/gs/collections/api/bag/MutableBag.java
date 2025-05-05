@@ -81,17 +81,7 @@ public interface MutableBag<T>
 
     <V> MutableBagMultimap<V, T> groupByEach(Function<? super T, ? extends Iterable<V>> function);
 
-    /**
-     * @deprecated in 6.0. Use {@link OrderedIterable#zip(Iterable)} instead.
-     */
-    @Deprecated
-    <S> MutableBag<Pair<T, S>> zip(Iterable<S> that);
 
-    /**
-     * @deprecated in 6.0. Use {@link OrderedIterable#zipWithIndex()} instead.
-     */
-    @Deprecated
-    MutableSet<Pair<T, Integer>> zipWithIndex();
 
     MutableBag<T> tap(Procedure<? super T> procedure);
 

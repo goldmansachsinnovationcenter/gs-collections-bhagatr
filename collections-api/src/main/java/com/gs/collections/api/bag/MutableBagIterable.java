@@ -30,7 +30,7 @@ import com.gs.collections.api.set.MutableSetIterable;
 import com.gs.collections.api.tuple.Pair;
 import com.gs.collections.api.tuple.primitive.ObjectIntPair;
 
-public interface MutableBagIterable<T> extends Bag<T>, MutableCollection<T>
+public interface MutableBagIterable<T> extends MutableBagBridge<T>
 {
     void addOccurrences(T item, int occurrences);
 

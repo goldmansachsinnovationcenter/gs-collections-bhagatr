@@ -51,9 +51,10 @@ import com.gs.collections.api.tuple.Pair;
  * item.
  *
  * @since 1.0
+ * @since 7.0.4 - Updated for Java 21 compatibility
  */
 public interface MutableBag<T>
-        extends UnsortedBag<T>, MutableBagIterable<T>
+        extends MutableBagIterable<T>
 {
     MutableMap<T, Integer> toMapOfItemToCount();
 

@@ -43,21 +43,15 @@ public interface <name>List extends Reversible<name>Iterable
      * This method has a different name than the one in Mutable<name>List to avoid method clash in Java 21.
      * @since 7.0.4
      */
-    \<V> ListIterable\<V> collectToObject(<name>ToObjectFunction\<? extends V> function);
+    \<V> ListIterable\<V> collectToListIterable(<name>ToObjectFunction\<? extends V> function);
     
     /**
-     * @deprecated As of 7.0.4, use {@link #collectToObject(<name>ToObjectFunction)} instead.
+     * @deprecated As of 7.0.4, use {@link #collectToListIterable(<name>ToObjectFunction)} instead.
      */
     @Deprecated
-    \<V> ListIterable\<V> collect(<name>ToObjectFunction\<? extends V> function);
-    
-    /**
-     * Implementation of the collectToObject method to avoid method clash in Java 21.
-     * @since 7.0.4
-     */
-    default \<V> ListIterable\<V> collectToObject(<name>ToObjectFunction\<? extends V> function)
+    default \<V> ListIterable\<V> collect(<name>ToObjectFunction\<? extends V> function)
     {
-        return this.collect(function);
+        return this.collectToListIterable(function);
     }
 
     /**

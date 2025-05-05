@@ -25,10 +25,33 @@ import com.gs.collections.api.partition.bag.PartitionImmutableBagIterable;
  * results that answer false for the predicate will be returned from the getRejected() method.
  *
  * @since 4.2
+ * @since 7.0.4 - Updated for Java 21 compatibility
  */
-public interface PartitionImmutableSortedBag<T> extends PartitionSortedBag<T>, PartitionImmutableBagIterable<T>
+public interface PartitionImmutableSortedBag<T> extends PartitionImmutableBagIterable<T>
 {
+    /**
+     * Returns an immutable sorted bag of elements that satisfy the predicate.
+     * This method has a different name than the one in PartitionSortedBag to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    ImmutableSortedBag<T> getSelectedSortedBag();
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #getSelectedSortedBag()} instead.
+     */
+    @Deprecated
     ImmutableSortedBag<T> getSelected();
 
+    /**
+     * Returns an immutable sorted bag of elements that do not satisfy the predicate.
+     * This method has a different name than the one in PartitionSortedBag to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    ImmutableSortedBag<T> getRejectedSortedBag();
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #getRejectedSortedBag()} instead.
+     */
+    @Deprecated
     ImmutableSortedBag<T> getRejected();
 }

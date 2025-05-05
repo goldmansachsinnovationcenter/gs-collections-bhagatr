@@ -54,10 +54,11 @@ import net.jcip.annotations.Immutable;
  * ImmutableSortedBag is the non-modifiable equivalent interface to {@link MutableSortedBag}.
  *
  * @since 4.2
+ * @since 7.0.4 - Updated for Java 21 compatibility
  */
 @Immutable
 public interface ImmutableSortedBag<T>
-        extends ImmutableBagIterable<T>, SortedBag<T>
+        extends ImmutableBagIterable<T>
 {
     ImmutableSortedBag<T> newWith(T element);
 
@@ -139,6 +140,17 @@ public interface ImmutableSortedBag<T>
 
     ImmutableSortedSet<Pair<T, Integer>> zipWithIndex();
 
+    /**
+     * Returns a mutable sorted map of items to counts.
+     * This method has a different name than the one in SortedBag to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableSortedMap<T, Integer> toItemCountSortedMap();
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #toItemCountSortedMap()} instead.
+     */
+    @Deprecated
     MutableSortedMap<T, Integer> toMapOfItemToCount();
 
     ImmutableSortedBag<T> toReversed();

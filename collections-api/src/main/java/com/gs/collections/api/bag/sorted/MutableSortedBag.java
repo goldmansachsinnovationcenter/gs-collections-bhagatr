@@ -51,12 +51,24 @@ import com.gs.collections.api.tuple.Pair;
 
 /**
  * @since 4.2
+ * @since 7.0.4 - Updated for Java 21 compatibility
  */
 public interface MutableSortedBag<T>
-        extends SortedBag<T>, MutableBagIterable<T>, Cloneable
+        extends MutableBagIterable<T>, Cloneable
 {
     MutableSortedBag<T> selectByOccurrences(IntPredicate predicate);
 
+    /**
+     * Returns a mutable sorted map of items to counts.
+     * This method has a different name than the one in SortedBag to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableSortedMap<T, Integer> toItemCountMap();
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #toItemCountMap()} instead.
+     */
+    @Deprecated
     MutableSortedMap<T, Integer> toMapOfItemToCount();
 
     MutableSortedBag<T> with(T element);
@@ -98,6 +110,17 @@ public interface MutableSortedBag<T>
 
     <S> MutableSortedBag<S> selectInstancesOf(Class<S> clazz);
 
+    /**
+     * Returns a mutable list of transformed values.
+     * This method has a different name than the one in SortedBag to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <V> MutableList<V> collectValues(Function<? super T, ? extends V> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #collectValues(Function)} instead.
+     */
+    @Deprecated
     <V> MutableList<V> collect(Function<? super T, ? extends V> function);
 
     MutableBooleanList collectBoolean(BooleanFunction<? super T> booleanFunction);
@@ -116,12 +139,56 @@ public interface MutableSortedBag<T>
 
     MutableShortList collectShort(ShortFunction<? super T> shortFunction);
 
+    /**
+     * Returns a mutable list of transformed values using the function and parameter.
+     * This method has a different name than the one in SortedBag to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <P, V> MutableList<V> collectValuesWith(Function2<? super T, ? super P, ? extends V> function, P parameter);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #collectValuesWith(Function2, Object)} instead.
+     */
+    @Deprecated
     <P, V> MutableList<V> collectWith(Function2<? super T, ? super P, ? extends V> function, P parameter);
 
+    /**
+     * Returns a mutable list of transformed values that match the predicate.
+     * This method has a different name than the one in SortedBag to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <V> MutableList<V> collectValuesIf(Predicate<? super T> predicate, Function<? super T, ? extends V> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #collectValuesIf(Predicate, Function)} instead.
+     */
+    @Deprecated
     <V> MutableList<V> collectIf(Predicate<? super T> predicate, Function<? super T, ? extends V> function);
 
+    /**
+     * Returns a mutable list of all elements from the nested iterables.
+     * This method has a different name than the one in SortedBag to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <V> MutableList<V> flatCollectValues(Function<? super T, ? extends Iterable<V>> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #flatCollectValues(Function)} instead.
+     */
+    @Deprecated
     <V> MutableList<V> flatCollect(Function<? super T, ? extends Iterable<V>> function);
 
+    /**
+     * Returns a mutable sorted set of distinct elements.
+     * This method has a different name than the one in SortedBag to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableSortedSet<T> distinctValues();
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #distinctValues()} instead.
+     */
+    @Deprecated
     MutableSortedSet<T> distinct();
 
     MutableSortedBag<T> takeWhile(Predicate<? super T> predicate);
@@ -148,8 +215,30 @@ public interface MutableSortedBag<T>
             Function0<? extends V> zeroValueFactory,
             Procedure2<? super V, ? super T> mutatingAggregator);
 
+    /**
+     * Returns a mutable list of pairs of values and elements from the provided iterable.
+     * This method has a different name than the one in SortedBag to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    <S> MutableList<Pair<T, S>> zipValues(Iterable<S> that);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #zipValues(Iterable)} instead.
+     */
+    @Deprecated
     <S> MutableList<Pair<T, S>> zip(Iterable<S> that);
 
+    /**
+     * Returns a mutable sorted set of pairs of values and their indices.
+     * This method has a different name than the one in SortedBag to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableSortedSet<Pair<T, Integer>> zipValuesWithIndex();
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #zipValuesWithIndex()} instead.
+     */
+    @Deprecated
     MutableSortedSet<Pair<T, Integer>> zipWithIndex();
 
     MutableSortedBag<T> toReversed();

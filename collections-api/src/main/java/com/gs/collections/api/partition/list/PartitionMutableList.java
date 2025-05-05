@@ -23,11 +23,35 @@ import com.gs.collections.api.partition.PartitionMutableCollection;
  * A PartitionMutableList is the result of splitting a mutable list into two mutable lists based on a Predicate.
  * The results that answer true for the Predicate will be returned from the getSelected() method and the results that answer
  * false for the predicate will be returned from the getRejected() method.
+ *
+ * @since 7.0.4 - Updated for Java 21 compatibility
  */
-public interface PartitionMutableList<T> extends PartitionMutableCollection<T>, PartitionList<T>
+public interface PartitionMutableList<T> extends PartitionMutableCollection<T>
 {
+    /**
+     * Returns a mutable list of elements that satisfy the predicate.
+     * This method has a different name than the one in PartitionList to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableList<T> getSelectedList();
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #getSelectedList()} instead.
+     */
+    @Deprecated
     MutableList<T> getSelected();
 
+    /**
+     * Returns a mutable list of elements that do not satisfy the predicate.
+     * This method has a different name than the one in PartitionList to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableList<T> getRejectedList();
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #getRejectedList()} instead.
+     */
+    @Deprecated
     MutableList<T> getRejected();
 
     PartitionImmutableList<T> toImmutable();

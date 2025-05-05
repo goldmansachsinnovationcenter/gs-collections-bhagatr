@@ -21,11 +21,34 @@ import com.gs.collections.api.partition.bag.PartitionMutableBagIterable;
 
 /**
  * @since 4.2
+ * @since 7.0.4 - Updated for Java 21 compatibility
  */
-public interface PartitionMutableSortedBag<T> extends PartitionSortedBag<T>, PartitionMutableBagIterable<T>
+public interface PartitionMutableSortedBag<T> extends PartitionMutableBagIterable<T>
 {
+    /**
+     * Returns a mutable sorted bag of elements that satisfy the predicate.
+     * This method has a different name than the one in PartitionSortedBag to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableSortedBag<T> getSelectedSortedBag();
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #getSelectedSortedBag()} instead.
+     */
+    @Deprecated
     MutableSortedBag<T> getSelected();
 
+    /**
+     * Returns a mutable sorted bag of elements that do not satisfy the predicate.
+     * This method has a different name than the one in PartitionSortedBag to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableSortedBag<T> getRejectedSortedBag();
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #getRejectedSortedBag()} instead.
+     */
+    @Deprecated
     MutableSortedBag<T> getRejected();
 
     PartitionImmutableSortedBag<T> toImmutable();

@@ -24,9 +24,10 @@ import com.gs.collections.api.tuple.Pair;
 
 /**
  * @since 1.0
+ * @since 7.0.4 - Updated for Java 21 compatibility
  */
 public interface MutableBagMultimap<K, V>
-        extends MutableBagIterableMultimap<K, V>, UnsortedBagMultimap<K, V>
+        extends MutableBagIterableMultimap<K, V>
 {
     MutableBag<V> replaceValues(K key, Iterable<? extends V> values);
 
@@ -34,6 +35,17 @@ public interface MutableBagMultimap<K, V>
 
     MutableBagMultimap<K, V> newEmpty();
 
+    /**
+     * Returns a mutable bag of values associated with the specified key.
+     * This method has a different name than the one in UnsortedBagMultimap to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    MutableBag<V> getValues(K key);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #getValues(Object)} instead.
+     */
+    @Deprecated
     MutableBag<V> get(K key);
 
     void putOccurrences(K key, V value, int occurrences);

@@ -24,6 +24,7 @@ import com.gs.collections.api.block.procedure.primitive.<name>IntProcedure;
  * This file was automatically generated from template file primitiveBag.stg.
  *
  * @since 3.0.
+ * @since 7.0.4 - Updated for Java 21 compatibility
  */
 public interface <name>Bag extends <name>Iterable
 {
@@ -44,7 +45,27 @@ public interface <name>Bag extends <name>Iterable
 
     <sharedAPI(fileName(primitive), name)>
 
+    /**
+     * Returns a bag of transformed values.
+     * This method has a different name than the one in Mutable<name>Bag to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    \<V> Bag\<V> collectToBag(<name>ToObjectFunction\<? extends V> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #collectToBag(<name>ToObjectFunction)} instead.
+     */
+    @Deprecated
     \<V> Bag\<V> collect(<name>ToObjectFunction\<? extends V> function);
+    
+    /**
+     * Implementation of the collectToBag method to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    default \<V> Bag\<V> collectToBag(<name>ToObjectFunction\<? extends V> function)
+    {
+        return this.collect(function);
+    }
 
     /**
      * Follows the same general contract as {@link Bag#equals(Object)}.

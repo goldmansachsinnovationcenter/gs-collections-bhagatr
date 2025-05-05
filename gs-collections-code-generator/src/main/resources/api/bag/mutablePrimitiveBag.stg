@@ -24,8 +24,9 @@ import com.gs.collections.api.collection.primitive.Mutable<name>Collection;
  * This file was automatically generated from template file mutablePrimitiveBag.stg.
  *
  * @since 3.0.
+ * @since 7.0.4 - Updated for Java 21 compatibility
  */
-public interface Mutable<name>Bag extends Mutable<name>Collection, <name>Bag
+public interface Mutable<name>Bag extends Mutable<name>Collection
 {
     void addOccurrences(<type> item, int occurrences);
 
@@ -33,6 +34,17 @@ public interface Mutable<name>Bag extends Mutable<name>Collection, <name>Bag
 
     <sharedAPI(fileName(primitive), name)>
 
+    /**
+     * Returns a mutable bag of transformed values.
+     * This method has a different name than the one in <name>Bag to avoid method clash in Java 21.
+     * @since 7.0.4
+     */
+    \<V> MutableBag\<V> collectToBag(<name>ToObjectFunction\<? extends V> function);
+    
+    /**
+     * @deprecated As of 7.0.4, use {@link #collectToBag(<name>ToObjectFunction)} instead.
+     */
+    @Deprecated
     \<V> MutableBag\<V> collect(<name>ToObjectFunction\<? extends V> function);
 
     <mutableAPI(fileName(primitive), type, name)>

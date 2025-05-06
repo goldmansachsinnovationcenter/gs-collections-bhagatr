@@ -81,7 +81,7 @@
 
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>2.5.1</version>
+                    <version>3.11.0</version>
                 </plugin>
 
                 <plugin>
@@ -181,9 +181,10 @@
 
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
                 <configuration>
-                    <source>7</source>
-                    <target>7</target>
+                    <source>21</source>
+                    <target>21</target>
                     <fork>true</fork>
                     <maxmem>2048m</maxmem>
                     <verbose>true</verbose>
@@ -258,7 +259,7 @@
                     <windowtitle>Goldman Sachs Collections - ${project.version}</windowtitle>
                     <show>public</show>
                     <links>
-                        <link>https://docs.oracle.com/javase/7/docs/api/</link>
+                        <link>https://docs.oracle.com/en/java/javase/21/docs/api/</link>
                     </links>
                     <destDir>${project.version}</destDir>
                     <additionalparam>-Xdoclint:none</additionalparam>
@@ -275,7 +276,7 @@
                                 <DependencyConvergence />
                                 <requirePluginVersions />
                                 <requireJavaVersion>
-                                    <version>1.7.0</version>
+                                    <version>21.0.0</version>
                                 </requireJavaVersion>
                                 <requireMavenVersion>
                                     <version>3.0.2</version>

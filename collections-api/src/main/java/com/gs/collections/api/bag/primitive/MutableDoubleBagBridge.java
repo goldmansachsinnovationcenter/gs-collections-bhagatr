@@ -16,9 +16,9 @@
 
 package com.gs.collections.api.bag.primitive;
 
+import com.gs.collections.api.bag.Bag;
 import com.gs.collections.api.block.function.primitive.DoubleToObjectFunction;
 import com.gs.collections.api.collection.primitive.MutableDoubleCollection;
-import com.gs.collections.api.set.MutableSet;
 
 /**
  * A bridge interface to resolve method clashes between DoubleBag and MutableDoubleCollection interfaces.
@@ -33,7 +33,7 @@ public interface MutableDoubleBagBridge extends DoubleBag, MutableDoubleCollecti
      * Transforms the double values using the specified function.
      *
      * @param function A function that transforms double values to objects of type V.
-     * @return A set containing the transformed values.
+     * @return A bag containing the transformed values.
      */
-    <V> MutableSet<V> collect(DoubleToObjectFunction<? extends V> function);
+    <V> Bag<V> collect(DoubleToObjectFunction<? extends V> function);
 }

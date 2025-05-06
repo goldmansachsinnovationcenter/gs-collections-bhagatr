@@ -21,9 +21,9 @@ import com.gs.collections.api.block.function.Function;
 import com.gs.collections.api.block.function.Function2;
 import com.gs.collections.api.block.function.primitive.BooleanFunction;
 import com.gs.collections.api.block.predicate.Predicate;
-import com.gs.collections.api.list.MutableList;
-import com.gs.collections.api.list.primitive.MutableBooleanList;
-import com.gs.collections.api.set.sorted.MutableSortedSet;
+import com.gs.collections.api.list.ListIterable;
+import com.gs.collections.api.list.primitive.BooleanList;
+import com.gs.collections.api.set.sorted.SortedSetIterable;
 import com.gs.collections.api.tuple.Pair;
 import com.gs.collections.api.tuple.primitive.ObjectIntPair;
 
@@ -42,7 +42,7 @@ public interface MutableSortedBagBridge<T> extends SortedBag<T>, MutableBagItera
      * @param count The maximum number of items to return.
      * @return The top occurrence items.
      */
-    MutableList<ObjectIntPair<T>> topOccurrences(int count);
+    ListIterable<ObjectIntPair<T>> topOccurrences(int count);
 
     /**
      * Bridge method to resolve clash between different bag interfaces.
@@ -51,45 +51,45 @@ public interface MutableSortedBagBridge<T> extends SortedBag<T>, MutableBagItera
      * @param count The maximum number of items to return.
      * @return The bottom occurrence items.
      */
-    MutableList<ObjectIntPair<T>> bottomOccurrences(int count);
+    ListIterable<ObjectIntPair<T>> bottomOccurrences(int count);
     
     /**
      * Bridge method to resolve clash between different bag interfaces.
      */
-    <V> MutableList<V> collect(Function<? super T, ? extends V> function);
+    <V> ListIterable<V> collect(Function<? super T, ? extends V> function);
     
     /**
      * Bridge method to resolve clash between different bag interfaces.
      */
-    <P, V> MutableList<V> collectWith(Function2<? super T, ? super P, ? extends V> function, P parameter);
+    <P, V> ListIterable<V> collectWith(Function2<? super T, ? super P, ? extends V> function, P parameter);
     
     /**
      * Bridge method to resolve clash between different bag interfaces.
      */
-    <V> MutableList<V> collectIf(Predicate<? super T> predicate, Function<? super T, ? extends V> function);
+    <V> ListIterable<V> collectIf(Predicate<? super T> predicate, Function<? super T, ? extends V> function);
     
     /**
      * Bridge method to resolve clash between different bag interfaces.
      */
-    <V> MutableList<V> flatCollect(Function<? super T, ? extends Iterable<V>> function);
+    <V> ListIterable<V> flatCollect(Function<? super T, ? extends Iterable<V>> function);
     
     /**
      * Bridge method to resolve clash between different bag interfaces.
      */
-    MutableSortedSet<T> distinct();
+    SortedSetIterable<T> distinct();
     
     /**
      * Bridge method to resolve clash between different bag interfaces.
      */
-    <S> MutableSortedSet<Pair<T, S>> zip(Iterable<S> that);
+    <S> SortedSetIterable<Pair<T, S>> zip(Iterable<S> that);
     
     /**
      * Bridge method to resolve clash between different bag interfaces.
      */
-    MutableSortedSet<Pair<T, Integer>> zipWithIndex();
+    SortedSetIterable<Pair<T, Integer>> zipWithIndex();
     
     /**
      * Bridge method to resolve clash between different bag interfaces.
      */
-    MutableBooleanList collectBoolean(BooleanFunction<? super T> booleanFunction);
+    BooleanList collectBoolean(BooleanFunction<? super T> booleanFunction);
 }

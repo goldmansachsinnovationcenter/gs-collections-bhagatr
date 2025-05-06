@@ -16,9 +16,9 @@
 
 package com.gs.collections.api.bag.primitive;
 
+import com.gs.collections.api.bag.Bag;
 import com.gs.collections.api.block.function.primitive.ByteToObjectFunction;
 import com.gs.collections.api.collection.primitive.MutableByteCollection;
-import com.gs.collections.api.set.MutableSet;
 
 /**
  * A bridge interface to resolve method clashes between ByteBag and MutableByteCollection interfaces.
@@ -33,7 +33,7 @@ public interface MutableByteBagBridge extends ByteBag, MutableByteCollection
      * Transforms the byte values using the specified function.
      *
      * @param function A function that transforms byte values to objects of type V.
-     * @return A set containing the transformed values.
+     * @return A bag containing the transformed values.
      */
-    <V> MutableSet<V> collect(ByteToObjectFunction<? extends V> function);
+    <V> Bag<V> collect(ByteToObjectFunction<? extends V> function);
 }

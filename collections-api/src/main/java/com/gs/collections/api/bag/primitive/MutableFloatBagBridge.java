@@ -16,9 +16,9 @@
 
 package com.gs.collections.api.bag.primitive;
 
+import com.gs.collections.api.bag.Bag;
 import com.gs.collections.api.block.function.primitive.FloatToObjectFunction;
 import com.gs.collections.api.collection.primitive.MutableFloatCollection;
-import com.gs.collections.api.set.MutableSet;
 
 /**
  * A bridge interface to resolve method clashes between FloatBag and MutableFloatCollection interfaces.
@@ -33,7 +33,7 @@ public interface MutableFloatBagBridge extends FloatBag, MutableFloatCollection
      * Transforms the float values using the specified function.
      *
      * @param function A function that transforms float values to objects of type V.
-     * @return A set containing the transformed values.
+     * @return A bag containing the transformed values.
      */
-    <V> MutableSet<V> collect(FloatToObjectFunction<? extends V> function);
+    <V> Bag<V> collect(FloatToObjectFunction<? extends V> function);
 }

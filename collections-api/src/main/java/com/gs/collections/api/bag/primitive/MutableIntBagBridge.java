@@ -16,9 +16,9 @@
 
 package com.gs.collections.api.bag.primitive;
 
+import com.gs.collections.api.bag.Bag;
 import com.gs.collections.api.block.function.primitive.IntToObjectFunction;
 import com.gs.collections.api.collection.primitive.MutableIntCollection;
-import com.gs.collections.api.set.MutableSet;
 
 /**
  * A bridge interface to resolve method clashes between IntBag and MutableIntCollection interfaces.
@@ -33,7 +33,7 @@ public interface MutableIntBagBridge extends IntBag, MutableIntCollection
      * Transforms the int values using the specified function.
      *
      * @param function A function that transforms int values to objects of type V.
-     * @return A set containing the transformed values.
+     * @return A bag containing the transformed values.
      */
-    <V> MutableSet<V> collect(IntToObjectFunction<? extends V> function);
+    <V> Bag<V> collect(IntToObjectFunction<? extends V> function);
 }

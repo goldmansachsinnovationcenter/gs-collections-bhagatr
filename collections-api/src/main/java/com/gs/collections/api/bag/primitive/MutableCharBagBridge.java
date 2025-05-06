@@ -16,9 +16,9 @@
 
 package com.gs.collections.api.bag.primitive;
 
+import com.gs.collections.api.bag.Bag;
 import com.gs.collections.api.block.function.primitive.CharToObjectFunction;
 import com.gs.collections.api.collection.primitive.MutableCharCollection;
-import com.gs.collections.api.set.MutableSet;
 
 /**
  * A bridge interface to resolve method clashes between CharBag and MutableCharCollection interfaces.
@@ -33,7 +33,7 @@ public interface MutableCharBagBridge extends CharBag, MutableCharCollection
      * Transforms the char values using the specified function.
      *
      * @param function A function that transforms char values to objects of type V.
-     * @return A set containing the transformed values.
+     * @return A bag containing the transformed values.
      */
-    <V> MutableSet<V> collect(CharToObjectFunction<? extends V> function);
+    <V> Bag<V> collect(CharToObjectFunction<? extends V> function);
 }

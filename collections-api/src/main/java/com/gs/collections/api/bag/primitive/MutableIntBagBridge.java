@@ -29,11 +29,11 @@ import com.gs.collections.api.set.MutableSet;
 public interface MutableIntBagBridge extends IntBag, MutableIntCollection
 {
     /**
-     * Bridge method to resolve clash between different bag interfaces
+     * Bridge method to resolve clash between different bag interfaces.
+     * Transforms the int values using the specified function.
+     *
+     * @param function A function that transforms int values to objects of type V.
+     * @return A set containing the transformed values.
      */
-    @Override
-    default <V> MutableSet<V> collect(IntToObjectFunction<? extends V> function)
-    {
-        return (MutableSet<V>) IntBag.super.collect(function);
-    }
+    <V> MutableSet<V> collect(IntToObjectFunction<? extends V> function);
 }

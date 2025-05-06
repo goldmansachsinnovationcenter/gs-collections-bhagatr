@@ -19,8 +19,10 @@ package com.gs.collections.api.bag.sorted;
 import com.gs.collections.api.bag.MutableBagIterable;
 import com.gs.collections.api.block.function.Function;
 import com.gs.collections.api.block.function.Function2;
+import com.gs.collections.api.block.function.primitive.BooleanFunction;
 import com.gs.collections.api.block.predicate.Predicate;
 import com.gs.collections.api.list.MutableList;
+import com.gs.collections.api.list.primitive.MutableBooleanList;
 import com.gs.collections.api.set.sorted.MutableSortedSet;
 import com.gs.collections.api.tuple.Pair;
 import com.gs.collections.api.tuple.primitive.ObjectIntPair;
@@ -34,83 +36,60 @@ import com.gs.collections.api.tuple.primitive.ObjectIntPair;
 public interface MutableSortedBagBridge<T> extends SortedBag<T>, MutableBagIterable<T>
 {
     /**
-     * Bridge method to resolve clash between different bag interfaces
+     * Bridge method to resolve clash between different bag interfaces.
+     * Returns the specified number of items with the highest occurrence counts.
+     *
+     * @param count The maximum number of items to return.
+     * @return The top occurrence items.
      */
-    @Override
-    default MutableList<ObjectIntPair<T>> topOccurrences(int count)
-    {
-        return (MutableList<ObjectIntPair<T>>) SortedBag.super.topOccurrences(count);
-    }
+    MutableList<ObjectIntPair<T>> topOccurrences(int count);
 
     /**
-     * Bridge method to resolve clash between different bag interfaces
+     * Bridge method to resolve clash between different bag interfaces.
+     * Returns the specified number of items with the lowest occurrence counts.
+     *
+     * @param count The maximum number of items to return.
+     * @return The bottom occurrence items.
      */
-    @Override
-    default MutableList<ObjectIntPair<T>> bottomOccurrences(int count)
-    {
-        return (MutableList<ObjectIntPair<T>>) SortedBag.super.bottomOccurrences(count);
-    }
+    MutableList<ObjectIntPair<T>> bottomOccurrences(int count);
     
     /**
-     * Bridge method to resolve clash between different bag interfaces
+     * Bridge method to resolve clash between different bag interfaces.
      */
-    @Override
-    default <V> MutableList<V> collect(Function<? super T, ? extends V> function)
-    {
-        return (MutableList<V>) SortedBag.super.collect(function);
-    }
+    <V> MutableList<V> collect(Function<? super T, ? extends V> function);
     
     /**
-     * Bridge method to resolve clash between different bag interfaces
+     * Bridge method to resolve clash between different bag interfaces.
      */
-    @Override
-    default <P, V> MutableList<V> collectWith(Function2<? super T, ? super P, ? extends V> function, P parameter)
-    {
-        return (MutableList<V>) SortedBag.super.collectWith(function, parameter);
-    }
+    <P, V> MutableList<V> collectWith(Function2<? super T, ? super P, ? extends V> function, P parameter);
     
     /**
-     * Bridge method to resolve clash between different bag interfaces
+     * Bridge method to resolve clash between different bag interfaces.
      */
-    @Override
-    default <V> MutableList<V> collectIf(Predicate<? super T> predicate, Function<? super T, ? extends V> function)
-    {
-        return (MutableList<V>) SortedBag.super.collectIf(predicate, function);
-    }
+    <V> MutableList<V> collectIf(Predicate<? super T> predicate, Function<? super T, ? extends V> function);
     
     /**
-     * Bridge method to resolve clash between different bag interfaces
+     * Bridge method to resolve clash between different bag interfaces.
      */
-    @Override
-    default <V> MutableList<V> flatCollect(Function<? super T, ? extends Iterable<V>> function)
-    {
-        return (MutableList<V>) SortedBag.super.flatCollect(function);
-    }
+    <V> MutableList<V> flatCollect(Function<? super T, ? extends Iterable<V>> function);
     
     /**
-     * Bridge method to resolve clash between different bag interfaces
+     * Bridge method to resolve clash between different bag interfaces.
      */
-    @Override
-    default MutableSortedSet<T> distinct()
-    {
-        return (MutableSortedSet<T>) SortedBag.super.distinct();
-    }
+    MutableSortedSet<T> distinct();
     
     /**
-     * Bridge method to resolve clash between different bag interfaces
+     * Bridge method to resolve clash between different bag interfaces.
      */
-    @Override
-    default <S> MutableSortedSet<Pair<T, S>> zip(Iterable<S> that)
-    {
-        return (MutableSortedSet<Pair<T, S>>) SortedBag.super.zip(that);
-    }
+    <S> MutableSortedSet<Pair<T, S>> zip(Iterable<S> that);
     
     /**
-     * Bridge method to resolve clash between different bag interfaces
+     * Bridge method to resolve clash between different bag interfaces.
      */
-    @Override
-    default MutableSortedSet<Pair<T, Integer>> zipWithIndex()
-    {
-        return (MutableSortedSet<Pair<T, Integer>>) SortedBag.super.zipWithIndex();
-    }
+    MutableSortedSet<Pair<T, Integer>> zipWithIndex();
+    
+    /**
+     * Bridge method to resolve clash between different bag interfaces.
+     */
+    MutableBooleanList collectBoolean(BooleanFunction<? super T> booleanFunction);
 }

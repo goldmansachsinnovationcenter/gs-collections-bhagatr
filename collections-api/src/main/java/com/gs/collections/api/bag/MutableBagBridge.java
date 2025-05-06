@@ -30,20 +30,20 @@ import com.gs.collections.api.tuple.primitive.ObjectIntPair;
 public interface MutableBagBridge<T> extends Bag<T>, MutableCollection<T>
 {
     /**
-     * Bridge method to resolve clash between different bag interfaces
+     * Bridge method to resolve clash between different bag interfaces.
+     * Returns the specified number of items with the highest occurrence counts.
+     *
+     * @param count The maximum number of items to return.
+     * @return The top occurrence items.
      */
-    @Override
-    default MutableList<ObjectIntPair<T>> topOccurrences(int count)
-    {
-        return (MutableList<ObjectIntPair<T>>) Bag.super.topOccurrences(count);
-    }
+    MutableList<ObjectIntPair<T>> topOccurrences(int count);
 
     /**
-     * Bridge method to resolve clash between different bag interfaces
+     * Bridge method to resolve clash between different bag interfaces.
+     * Returns the specified number of items with the lowest occurrence counts.
+     *
+     * @param count The maximum number of items to return.
+     * @return The bottom occurrence items.
      */
-    @Override
-    default MutableList<ObjectIntPair<T>> bottomOccurrences(int count)
-    {
-        return (MutableList<ObjectIntPair<T>>) Bag.super.bottomOccurrences(count);
-    }
+    MutableList<ObjectIntPair<T>> bottomOccurrences(int count);
 }

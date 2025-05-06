@@ -29,11 +29,11 @@ import com.gs.collections.api.set.MutableSet;
 public interface MutableFloatBagBridge extends FloatBag, MutableFloatCollection
 {
     /**
-     * Bridge method to resolve clash between different bag interfaces
+     * Bridge method to resolve clash between different bag interfaces.
+     * Transforms the float values using the specified function.
+     *
+     * @param function A function that transforms float values to objects of type V.
+     * @return A set containing the transformed values.
      */
-    @Override
-    default <V> MutableSet<V> collect(FloatToObjectFunction<? extends V> function)
-    {
-        return (MutableSet<V>) FloatBag.super.collect(function);
-    }
+    <V> MutableSet<V> collect(FloatToObjectFunction<? extends V> function);
 }

@@ -29,11 +29,11 @@ import com.gs.collections.api.set.MutableSet;
 public interface MutableLongBagBridge extends LongBag, MutableLongCollection
 {
     /**
-     * Bridge method to resolve clash between different bag interfaces
+     * Bridge method to resolve clash between different bag interfaces.
+     * Transforms the long values using the specified function.
+     *
+     * @param function A function that transforms long values to objects of type V.
+     * @return A set containing the transformed values.
      */
-    @Override
-    default <V> MutableSet<V> collect(LongToObjectFunction<? extends V> function)
-    {
-        return (MutableSet<V>) LongBag.super.collect(function);
-    }
+    <V> MutableSet<V> collect(LongToObjectFunction<? extends V> function);
 }

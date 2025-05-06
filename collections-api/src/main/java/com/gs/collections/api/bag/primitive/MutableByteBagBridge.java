@@ -29,11 +29,11 @@ import com.gs.collections.api.set.MutableSet;
 public interface MutableByteBagBridge extends ByteBag, MutableByteCollection
 {
     /**
-     * Bridge method to resolve clash between different bag interfaces
+     * Bridge method to resolve clash between different bag interfaces.
+     * Transforms the byte values using the specified function.
+     *
+     * @param function A function that transforms byte values to objects of type V.
+     * @return A set containing the transformed values.
      */
-    @Override
-    default <V> MutableSet<V> collect(ByteToObjectFunction<? extends V> function)
-    {
-        return (MutableSet<V>) ByteBag.super.collect(function);
-    }
+    <V> MutableSet<V> collect(ByteToObjectFunction<? extends V> function);
 }

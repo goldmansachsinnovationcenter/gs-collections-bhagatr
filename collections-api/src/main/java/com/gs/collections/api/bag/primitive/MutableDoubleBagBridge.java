@@ -29,11 +29,11 @@ import com.gs.collections.api.set.MutableSet;
 public interface MutableDoubleBagBridge extends DoubleBag, MutableDoubleCollection
 {
     /**
-     * Bridge method to resolve clash between different bag interfaces
+     * Bridge method to resolve clash between different bag interfaces.
+     * Transforms the double values using the specified function.
+     *
+     * @param function A function that transforms double values to objects of type V.
+     * @return A set containing the transformed values.
      */
-    @Override
-    default <V> MutableSet<V> collect(DoubleToObjectFunction<? extends V> function)
-    {
-        return (MutableSet<V>) DoubleBag.super.collect(function);
-    }
+    <V> MutableSet<V> collect(DoubleToObjectFunction<? extends V> function);
 }

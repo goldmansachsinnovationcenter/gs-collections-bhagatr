@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Goldman Sachs.
+ * Copyright 2015 Goldman Sachs.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,18 @@
  * limitations under the License.
  */
 
-package com.gs.collections.api.list;
+package com.gs.collections.api.map;
 
-import com.gs.collections.api.collection.FixedSizeCollection;
+import com.gs.collections.api.ordered.OrderedIterable;
 
 /**
- * A FixedSizeList is a list that may be mutated, but cannot grow or shrink in size.  The typical
- * mutation allowed for a FixedSizeList implementation is a working implementation for set(int, T).
- * This will allow the FixedSizeList to be sorted.
+ * A bridge interface to ensure compatibility between OrderedMap and OrderedIterable interfaces.
+ * This is needed for Java 21's stricter type checking.
  *
- * @since 7.0.4 - Updated for Java 21 compatibility
+ * @since 7.0.4
  */
-public interface FixedSizeList<T>
-        extends FixedSizeListBridge<T>
+public interface OrderedMapBridge<K, V> extends OrderedMap<K, V>, OrderedIterable<V>
 {
-    FixedSizeList<T> toReversed();
+    // - distinctValues() instead of distinct()
+    // - zipValuesWithIndex() instead of zipWithIndex()
 }
